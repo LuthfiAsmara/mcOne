@@ -13,7 +13,7 @@ struct Try1View: View{
             ZStack{
                 Image("bg")
                 VStack(spacing: 16.0){
-                    Text("Tung - tung")
+                    Text("Tong - Tong")
                         .font(.largeTitle)
                         .foregroundColor(.red)
                         .fontWeight(.heavy)
