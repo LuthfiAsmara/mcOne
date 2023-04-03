@@ -11,6 +11,7 @@
 		DE585DD529D67DF4007C966C /* orientationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD429D67DF4007C966C /* orientationDisplay.swift */; };
 		DE585DD729D6B49E007C966C /* wrongAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD629D6B49E007C966C /* wrongAnswer.swift */; };
 		DE585DD929D6B79A007C966C /* correctAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD829D6B79A007C966C /* correctAnswer.swift */; };
+		DE6AF71829DA79340052F0BC /* Try1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6AF71729DA79340052F0BC /* Try1.swift */; };
 		DEC2AE1D29D894E600D30961 /* try.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2AE1C29D894E600D30961 /* try.swift */; };
 		DECF5CE729C2D243004321EB /* mcOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5CE629C2D243004321EB /* mcOneApp.swift */; };
 		DECF5CEB29C2D244004321EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECF5CEA29C2D244004321EB /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		DE585DD429D67DF4007C966C /* orientationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orientationDisplay.swift; sourceTree = "<group>"; };
 		DE585DD629D6B49E007C966C /* wrongAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongAnswer.swift; sourceTree = "<group>"; };
 		DE585DD829D6B79A007C966C /* correctAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correctAnswer.swift; sourceTree = "<group>"; };
+		DE6AF71729DA79340052F0BC /* Try1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Try1.swift; sourceTree = "<group>"; };
 		DEC2AE1C29D894E600D30961 /* try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try.swift; sourceTree = "<group>"; };
 		DECF5CE329C2D243004321EB /* mcOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mcOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECF5CE629C2D243004321EB /* mcOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mcOneApp.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
+		DE6AF71629DA79220052F0BC /* Try */ = {
+			isa = PBXGroup;
+			children = (
+				DE6AF71729DA79340052F0BC /* Try1.swift */,
+			);
+			path = Try;
+			sourceTree = "<group>";
+		};
 		DECF5CDA29C2D243004321EB = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		DECF5D1029C2D2B4004321EB /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				DE6AF71629DA79220052F0BC /* Try */,
 				DECF5D2729C2D3D2004321EB /* minus */,
 				DECF5D2429C2D3C0004321EB /* add */,
 				DECF5D1A29C2D31E004321EB /* home */,
@@ -381,6 +392,7 @@
 				DECF5D1F29C2D36B004321EB /* color.swift in Sources */,
 				DEC2AE1D29D894E600D30961 /* try.swift in Sources */,
 				DECF5D1429C2D2E1004321EB /* appBar.swift in Sources */,
+				DE6AF71829DA79340052F0BC /* Try1.swift in Sources */,
 				DE585DD529D67DF4007C966C /* orientationDisplay.swift in Sources */,
 				DECF5D1929C2D31A004321EB /* splashView.swift in Sources */,
 				DECF5D3129D1563A004321EB /* explanation.swift in Sources */,
