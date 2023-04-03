@@ -14,28 +14,34 @@ struct AnswerButton: View {
     
     
     var body: some View {
-        LazyVGrid(columns: items, spacing: 10) {
+        LazyVGrid(columns: items, spacing:6) {
             ForEach(0..<number, id: \.self) { number in
                 Image("donat")
                     .resizable()
-                    .frame(width: 50, height: 50);
+                    .frame(width: 30, height: 30);
             }
             
             
             
-        }.background(
-            Rectangle().fill(Color.bgAnswer)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.top,-10)
-                .padding(.bottom, -10)
-                .padding(.leading, -10)
-                .padding(.trailing, -10)
+        }
+        .background(
+            Image("biskuit")
+                .resizable()
+                
+                .scaledToFit()
+                .frame(width: 250, height: 300)
+//                .padding(.top,10)
+//                .padding(.bottom, -10)
+//                .padding(.leading, -10)
+//                .padding(.trailing, -10)
             )
+        .frame(width: 150)
     }
 }
 
 struct AnswerButton_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerButton(number: 5)
+//        AnswerButton(number: 9)
+        AddView()
     }
 }

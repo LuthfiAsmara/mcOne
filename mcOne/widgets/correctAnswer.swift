@@ -14,7 +14,7 @@ struct CorrectAnswer: View{
             Circle().fill(Color.white).opacity(0.2).frame(width: 320)
             Circle().fill(Color.greenForGradient).frame(width: 260)
             
-            Image("sad")
+            Image("happy")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 220)

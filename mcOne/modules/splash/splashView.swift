@@ -22,6 +22,7 @@ struct SplashView: View {
                         height: 200,  alignment: .center)
             }.navigationBarBackButtonHidden(true)
             .onAppear{
+//                SoundService.instance.PlaySound()
                 DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
                     self.isSplash = true
                 }

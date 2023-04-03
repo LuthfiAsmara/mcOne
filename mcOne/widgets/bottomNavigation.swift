@@ -12,8 +12,7 @@ struct BottomNavigation: View{
     var body: some View{
         HStack(spacing: 80){
             IconNav(title: "Home", destination:AnyView( HomeView()), icon: "school")
-            IconNav(title: "Game", destination:AnyView( GameView()), icon: "bag")
-            IconNav(title: "Profil", destination:AnyView( ProfilView()), icon: "person")
+
             
         }
     }
