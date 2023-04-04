@@ -14,28 +14,21 @@ struct AnswerButton: View {
     
     
     var body: some View {
-        LazyVGrid(columns: items, spacing:6) {
-            ForEach(0..<number, id: \.self) { number in
-                Image("donat")
-                    .resizable()
-                    .frame(width: 30, height: 30);
-            }
-            
-            
-            
-        }
-        .background(
+        ZStack{
             Image("biskuit")
                 .resizable()
-                
-                .scaledToFit()
-                .frame(width: 250, height: 300)
-//                .padding(.top,10)
-//                .padding(.bottom, -10)
-//                .padding(.leading, -10)
-//                .padding(.trailing, -10)
-            )
-        .frame(width: 150)
+            
+            //                .scaledToFit()
+                .frame(width: 200, height:170)
+            LazyVGrid(columns: items, spacing:6) {
+                ForEach(0..<number, id: \.self) { number in
+                    Image("donat")
+                        .resizable()
+                        .frame(width: 30, height: 30);
+                }
+            }.frame(width: 150)
+            
+        }
     }
 }
 

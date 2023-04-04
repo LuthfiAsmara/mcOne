@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct AddView: View {
-    //    inisiasi variabel yang diperlukan
-    @State var firstNumber = Int.random(in: 1...5) //angka pertama untuk operasi hitung
-    @State var secondNumber = Int.random(in: 1...4) //angka kedua untuk operasi hitung
-    @State var correctAnswer = 0 //variabel digunakan untuk menyimpan jawaban yang benar
-    @State var isCorrect: Bool = false //inisiasi kondisi untuk digunakan menampilkan popup benar
-    @State var isWrong: Bool = false //inisiasi kondisi untuk digunakan menampilkan popup salah
-    @State var option: Set<Int> = [] //variabel aray untuk menyimpan 3 opsi jawaban
+    @State var firstNumber = 5
+    @State var secondNumber = 4
+    @State var correctAnswer = 0
+    @State var isCorrect: Bool = false
+    @State var isWrong: Bool = false
+    @State var option: Set<Int> = []
     
     var body: some View {
         ZStack{
@@ -22,33 +21,34 @@ struct AddView: View {
             Rectangle().fill(Color.black).opacity(0.2)
             VStack {
                 ZStack{
-                    Rectangle().fill(Color.bgExplanation)
-                        .frame(width: 630, height: 100)
-                        .padding(.leading, -100)
-                        .padding(.bottom, 90)
-                    
                     HStack{
+                        Spacer().frame(width: 20)
                         ForEach(0..<firstNumber, id: \.self) { number in
                             Image("donat").resizable()
                                 .frame(width: 50, height: 50)
                         }
-                        Text("+")
+                        Text("+").font(.largeTitle)
                         ForEach(0..<secondNumber, id: \.self) { number in
                             Image("donat").resizable()
                                 .frame(width: 50, height: 50)
                         }
-                        Text("=")
+                        Text("=").font(.largeTitle)
+                        
+                        
                         Spacer()
-                    }.padding(.leading, 80)
-                        .padding(.bottom, 90)
+                    }.frame(width: .infinity, height: 120)
+                        .background(Color.bgExplanation)
+                        .padding(.leading, 80)
+                        .padding(.trailing, 110)
+                    
                     
                     Image(systemName: "questionmark").resizable()
                         .scaledToFit()
                         .frame(width: 40)
                         .background(Rectangle().fill(Color.bgAnswer)
                             .frame(width: 70, height: 90))
-                        .padding(.leading, 550)
-                        .padding(.bottom, 90)
+                        .padding(.leading, 610)
+                    
                     
                     
                 }
@@ -66,7 +66,7 @@ struct AddView: View {
                             }
                         } label: {
                             AnswerButton(number: a)
-                        }.padding(.trailing, 90)
+                        }.padding(.trailing, 10)
                     }
                     Spacer()
                 }.padding(.leading, 100)
@@ -97,7 +97,7 @@ struct AddView: View {
             
         }.previewInterfaceOrientation(.landscapeRight)
             .onAppear{
-                //                SoundService.instance.PlaySound()
+                //              SoundService.instance.PlaySound()
                 print(option)
                 correctAnswer = firstNumber + secondNumber
                 option.insert(correctAnswer)

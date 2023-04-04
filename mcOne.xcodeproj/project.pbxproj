@@ -12,6 +12,7 @@
 		DE585DD729D6B49E007C966C /* wrongAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD629D6B49E007C966C /* wrongAnswer.swift */; };
 		DE585DD929D6B79A007C966C /* correctAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD829D6B79A007C966C /* correctAnswer.swift */; };
 		DE6AF71829DA79340052F0BC /* Try1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6AF71729DA79340052F0BC /* Try1.swift */; };
+		DE6AF71A29DBE14F0052F0BC /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DE6AF71929DBE14F0052F0BC /* sound.mp3 */; };
 		DEC2AE1D29D894E600D30961 /* try.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2AE1C29D894E600D30961 /* try.swift */; };
 		DECF5CE729C2D243004321EB /* mcOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5CE629C2D243004321EB /* mcOneApp.swift */; };
 		DECF5CEB29C2D244004321EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECF5CEA29C2D244004321EB /* Assets.xcassets */; };
@@ -51,11 +52,11 @@
 
 /* Begin PBXFileReference section */
 		DE2626FD29D8BBB800646504 /* sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound.swift; sourceTree = "<group>"; };
-		DE26270129D8C00000646504 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		DE585DD429D67DF4007C966C /* orientationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orientationDisplay.swift; sourceTree = "<group>"; };
 		DE585DD629D6B49E007C966C /* wrongAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongAnswer.swift; sourceTree = "<group>"; };
 		DE585DD829D6B79A007C966C /* correctAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correctAnswer.swift; sourceTree = "<group>"; };
 		DE6AF71729DA79340052F0BC /* Try1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Try1.swift; sourceTree = "<group>"; };
+		DE6AF71929DBE14F0052F0BC /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sound.mp3; path = ../../../../Downloads/sound.mp3; sourceTree = "<group>"; };
 		DEC2AE1C29D894E600D30961 /* try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try.swift; sourceTree = "<group>"; };
 		DECF5CE329C2D243004321EB /* mcOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mcOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECF5CE629C2D243004321EB /* mcOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mcOneApp.swift; sourceTree = "<group>"; };
@@ -107,7 +108,7 @@
 		DE2626FC29D8BBAC00646504 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				DE26270129D8C00000646504 /* sound.mp3 */,
+				DE6AF71929DBE14F0052F0BC /* sound.mp3 */,
 				DE2626FD29D8BBB800646504 /* sound.swift */,
 			);
 			path = service;
@@ -362,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DECF5CEE29C2D244004321EB /* Preview Assets.xcassets in Resources */,
+				DE6AF71A29DBE14F0052F0BC /* sound.mp3 in Resources */,
 				DECF5CEB29C2D244004321EB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
