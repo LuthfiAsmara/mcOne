@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1D928329DD1FFD006A834B /* lives.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928229DD1FFD006A834B /* lives.swift */; };
+		DE1D928529DD3C4A006A834B /* explanationMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928429DD3C4A006A834B /* explanationMinus.swift */; };
 		DE2626FE29D8BBB800646504 /* sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2626FD29D8BBB800646504 /* sound.swift */; };
 		DE585DD529D67DF4007C966C /* orientationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD429D67DF4007C966C /* orientationDisplay.swift */; };
 		DE585DD729D6B49E007C966C /* wrongAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE585DD629D6B49E007C966C /* wrongAnswer.swift */; };
@@ -29,7 +31,7 @@
 		DECF5D2329C2D3AA004321EB /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D2229C2D3AA004321EB /* user.swift */; };
 		DECF5D2629C2D3CB004321EB /* addView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D2529C2D3CB004321EB /* addView.swift */; };
 		DECF5D2929C2D3DB004321EB /* minusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D2829C2D3DB004321EB /* minusView.swift */; };
-		DECF5D3129D1563A004321EB /* explanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D3029D1563A004321EB /* explanation.swift */; };
+		DECF5D3129D1563A004321EB /* explanationAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D3029D1563A004321EB /* explanationAdd.swift */; };
 		DECFE21A29D5D7D500AB1878 /* answerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECFE21929D5D7D500AB1878 /* answerButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE1D928229DD1FFD006A834B /* lives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lives.swift; sourceTree = "<group>"; };
+		DE1D928429DD3C4A006A834B /* explanationMinus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationMinus.swift; sourceTree = "<group>"; };
 		DE2626FD29D8BBB800646504 /* sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound.swift; sourceTree = "<group>"; };
 		DE585DD429D67DF4007C966C /* orientationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orientationDisplay.swift; sourceTree = "<group>"; };
 		DE585DD629D6B49E007C966C /* wrongAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongAnswer.swift; sourceTree = "<group>"; };
@@ -76,7 +80,7 @@
 		DECF5D2229C2D3AA004321EB /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		DECF5D2529C2D3CB004321EB /* addView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addView.swift; sourceTree = "<group>"; };
 		DECF5D2829C2D3DB004321EB /* minusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minusView.swift; sourceTree = "<group>"; };
-		DECF5D3029D1563A004321EB /* explanation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanation.swift; sourceTree = "<group>"; };
+		DECF5D3029D1563A004321EB /* explanationAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationAdd.swift; sourceTree = "<group>"; };
 		DECFE21929D5D7D500AB1878 /* answerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = answerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,11 +211,13 @@
 			children = (
 				DECF5D1329C2D2E1004321EB /* appBar.swift */,
 				DECF5D1529C2D2F7004321EB /* bottomNavigation.swift */,
-				DECF5D3029D1563A004321EB /* explanation.swift */,
+				DECF5D3029D1563A004321EB /* explanationAdd.swift */,
 				DECFE21929D5D7D500AB1878 /* answerButton.swift */,
 				DE585DD629D6B49E007C966C /* wrongAnswer.swift */,
 				DE585DD829D6B79A007C966C /* correctAnswer.swift */,
 				DEC2AE1C29D894E600D30961 /* try.swift */,
+				DE1D928229DD1FFD006A834B /* lives.swift */,
+				DE1D928429DD3C4A006A834B /* explanationMinus.swift */,
 			);
 			path = widgets;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1D928329DD1FFD006A834B /* lives.swift in Sources */,
 				DECF5D2929C2D3DB004321EB /* minusView.swift in Sources */,
 				DECF5D2129C2D378004321EB /* textStyle.swift in Sources */,
 				DECF5D1F29C2D36B004321EB /* color.swift in Sources */,
@@ -397,13 +404,14 @@
 				DE6AF71829DA79340052F0BC /* Try1.swift in Sources */,
 				DE585DD529D67DF4007C966C /* orientationDisplay.swift in Sources */,
 				DECF5D1929C2D31A004321EB /* splashView.swift in Sources */,
-				DECF5D3129D1563A004321EB /* explanation.swift in Sources */,
+				DECF5D3129D1563A004321EB /* explanationAdd.swift in Sources */,
 				DECF5D2329C2D3AA004321EB /* user.swift in Sources */,
 				DE585DD729D6B49E007C966C /* wrongAnswer.swift in Sources */,
 				DE585DD929D6B79A007C966C /* correctAnswer.swift in Sources */,
 				DECF5D1629C2D2F7004321EB /* bottomNavigation.swift in Sources */,
 				DE2626FE29D8BBB800646504 /* sound.swift in Sources */,
 				DECF5CE729C2D243004321EB /* mcOneApp.swift in Sources */,
+				DE1D928529DD3C4A006A834B /* explanationMinus.swift in Sources */,
 				DECF5D2629C2D3CB004321EB /* addView.swift in Sources */,
 				DECF5D1C29C2D329004321EB /* homeView.swift in Sources */,
 				DECFE21A29D5D7D500AB1878 /* answerButton.swift in Sources */,

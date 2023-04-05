@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AddView: View {
-    @State var firstNumber = 5
-    @State var secondNumber = 4
+    @State var firstNumber = Int.random(in: 1...5)
+    @State var secondNumber = Int.random(in: 1...4)
     @State var correctAnswer = 0
+    @State var livesCounts = 3
     @State var isCorrect: Bool = false
     @State var isWrong: Bool = false
     @State var option: Set<Int> = []
@@ -20,6 +21,9 @@ struct AddView: View {
             Image("bg")
             Rectangle().fill(Color.black).opacity(0.2)
             VStack {
+                LivesView(livesCount: livesCounts)
+                    .frame(width: 200)
+                    .padding(.leading, 500)
                 ZStack{
                     HStack{
                         Spacer().frame(width: 20)
@@ -49,8 +53,6 @@ struct AddView: View {
                             .frame(width: 70, height: 90))
                         .padding(.leading, 610)
                     
-                    
-                    
                 }
                 HStack{
                     
@@ -63,6 +65,9 @@ struct AddView: View {
                                 self.isCorrect = true
                             }else{
                                 self.isWrong = true
+                                self.livesCounts = livesCounts-1
+
+                                
                             }
                         } label: {
                             AnswerButton(number: a)
@@ -94,31 +99,46 @@ struct AddView: View {
                     print(option)
                 }
             }
+            if livesCounts == 0 {
+                ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
+                    self.isWrong = false
+                    newQuestion()
+                    self.livesCounts = 3
+                }
+            }
             
         }.previewInterfaceOrientation(.landscapeRight)
             .onAppear{
                 //              SoundService.instance.PlaySound()
+                
                 print(option)
-                correctAnswer = firstNumber + secondNumber
+                plusOperation()
                 option.insert(correctAnswer)
-                while option.count < 3 {
-                    let randomNumber = Int.random(in: 1...4)
-                    if randomNumber != 0 && !option.contains(randomNumber){
-                        option.insert(randomNumber)
-                    }
-                }
+                insertNumber()
                 print(option)
                 
             }
     }
-    
-    //    fungsi untuk membuat soal baru
-    func newQuestion() {
+    private func generateNumber(){
         firstNumber = Int.random(in: 1...5)
         secondNumber = Int.random(in: 1...4)
+    }
+    private func plusOperation(){
         correctAnswer = firstNumber + secondNumber
+    }
+    private func insertNumber(){
+        while option.count < 3 {
+            let randomNumber = Int.random(in: 1...4)
+            if randomNumber != 0 && !option.contains(randomNumber){
+                option.insert(randomNumber)
+            }
+        }
+    }
+    
+    private func newQuestion() {
+        generateNumber()
+        plusOperation()
         var newOption = Set<Int>()
-        
         newOption.insert(correctAnswer)
         
         while newOption.count < 3 {

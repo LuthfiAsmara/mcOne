@@ -11,6 +11,7 @@ struct MinusView: View{
     @State var firstNumber = Int.random(in: 1...9)
     @State var secondNumber = Int.random(in: 1...8)
     @State var correctAnswer = 0
+    @State var livesCounts = 3
     @State var isCorrect: Bool = false
     @State var isWrong: Bool = false
     @State var option: Set<Int> = []
@@ -25,6 +26,9 @@ struct MinusView: View{
             Image("bg")
             Rectangle().fill(Color.black).opacity(0.2)
             VStack {
+                LivesView(livesCount: livesCounts)
+                    .frame(width: 200)
+                    .padding(.leading, 500)
                 ZStack{
                     HStack{
                         Spacer().frame(width: 20)
@@ -45,6 +49,7 @@ struct MinusView: View{
                         
                         Text("-").font(.largeTitle)
                         if secondNumber > 5 {
+                            
                             LazyHGrid(rows: rows,spacing: 5) {
                                 ForEach(0..<secondNumber, id: \.self) { number in
                                     Image("donat").resizable()
@@ -75,18 +80,18 @@ struct MinusView: View{
                 }
                 HStack{
                     
-                    ForEach(option.shuffled(), id: \.self) { a in
+                    ForEach(option.shuffled(), id: \.self) { nums in
                         
                         Button {
-                            
-                            if a == correctAnswer
+                            if nums == correctAnswer
                             {
                                 self.isCorrect = true
                             }else{
                                 self.isWrong = true
+                                self.livesCounts = livesCounts-1
                             }
                         } label: {
-                            AnswerButton(number: a)
+                            AnswerButton(number: nums)
                         }.padding(.trailing, 10)
                     }
                     Spacer()
@@ -108,37 +113,53 @@ struct MinusView: View{
                     print(option)
                 }
             }
+            if livesCounts == 0 {
+                ExplanationMinusView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
+                    self.isWrong = false
+                    newQuestion()
+                    self.livesCounts = 3
+                }
+            }
             
         }.previewInterfaceOrientation(.landscapeRight)
             .onAppear{
 //                                SoundService.instance.PlaySound()
                 print(option)
-                while firstNumber <= secondNumber {
-                    firstNumber = Int.random(in: 1...9)
-                    secondNumber = Int.random(in: 1...8)
-                }
-                correctAnswer = firstNumber - secondNumber
+                generateNumber()
+                minusOperation()
                 option.insert(correctAnswer)
-                while option.count < 3 {
-                    let randomNumber = Int.random(in: 1...4)
-                    if randomNumber != 0 && !option.contains(randomNumber){
-                        option.insert(randomNumber)
-                    }
-                }
+                insertNumber()
                 print(option)
+                
                 
             }
     }
     
-    //    fungsi untuk membuat soal baru
-    func newQuestion() {
-        firstNumber = Int.random(in: 1...5)
-        secondNumber = Int.random(in: 1...4)
+    func generateNumber(){
+        firstNumber = Int.random(in: 1...9)
+        secondNumber = Int.random(in: 1...8)
         while firstNumber <= secondNumber {
             firstNumber = Int.random(in: 1...9)
             secondNumber = Int.random(in: 1...8)
         }
+    }
+    
+    func minusOperation(){
         correctAnswer = firstNumber - secondNumber
+    }
+    
+    func insertNumber(){
+        while option.count < 3 {
+            let randomNumber = Int.random(in: 1...4)
+            if randomNumber != 0 && !option.contains(randomNumber){
+                option.insert(randomNumber)
+            }
+        }
+    }
+    
+    func newQuestion() {
+        generateNumber()
+        minusOperation()
         var newOption = Set<Int>()
         
         newOption.insert(correctAnswer)
