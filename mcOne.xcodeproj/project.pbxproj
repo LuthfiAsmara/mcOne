@@ -82,6 +82,7 @@
 		DECF5D3029D1563A004321EB /* explanationAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationAdd.swift; sourceTree = "<group>"; };
 		DECFE21929D5D7D500AB1878 /* answerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = answerButton.swift; sourceTree = "<group>"; };
 		DEFCED0629DE5D2900C06665 /* scoreBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreBoard.swift; sourceTree = "<group>"; };
+		DEFCED0829DE6BAD00C06665 /* mcOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mcOne.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +166,7 @@
 		DECF5CE529C2D243004321EB /* mcOne */ = {
 			isa = PBXGroup;
 			children = (
+				DEFCED0829DE6BAD00C06665 /* mcOne.entitlements */,
 				DE01995329DDDC0A0004EFBD /* font */,
 				DE2626FC29D8BBAC00646504 /* service */,
 				DE585DD329D67DE4007C966C /* helper */,
@@ -578,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mcOne/mcOne.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -615,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mcOne/mcOne.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -20,11 +20,7 @@ struct MinusView: View{
     @State var isPopup: Bool = false
     
     var body: some View {
-        let widthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
-        let heigthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
-        let widthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
-        let heigthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
-        let rows: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+        
         ZStack{
             Image("bg")
             Rectangle().fill(Color.black).opacity(0.2)
@@ -32,102 +28,39 @@ struct MinusView: View{
                 LivesView(livesCount: livesCounts)
                     .frame(width: 200)
                     .padding(.leading, 500)
-                ZStack{
-                    HStack{
-                        Spacer().frame(width: 20)
-                        if firstNumber > 5 {
-                            LazyHGrid(rows: rows,spacing: 5) {
-                                ForEach(0..<firstNumber, id: \.self) { number in
-                                    Image("donat").resizable()
-                                        .frame(width: widthQuestion1, height: heigthQuestion1)
-                                }
-                            }
-                        }else{
-                            ForEach(0..<firstNumber, id: \.self) { number in
-                                Image("donat").resizable()
-                                    .frame(width: widthQuestion1, height: heigthQuestion1)
-                            }
-                        }
-                        
-                        
-                        Text("-").font(.largeTitle)
-                        if secondNumber > 5 {
-                            
-                            LazyHGrid(rows: rows,spacing: 5) {
-                                ForEach(0..<secondNumber, id: \.self) { number in
-                                    Image("donat").resizable()
-                                        .frame(width: widthQuestion2, height: heigthQuestion2)
-                                }
-                            }
-                        }else{
-                            ForEach(0..<secondNumber, id: \.self) { number in
-                                Image("donat").resizable()
-                                    .frame(width: widthQuestion2, height: heigthQuestion2)
-                            }
-                        }
-                        Text("=").font(.largeTitle)
-                        Spacer()
-                    }.frame(width: .infinity, height: 120)
-                        .background(Color.bgExplanation)
-                        .padding(.leading, 80)
-                        .padding(.trailing, 110)
-                        
-                        
-                    Image(systemName: "questionmark").resizable()
-                        .scaledToFit()
-                        .frame(width: 40)
-                        .background(Rectangle().fill(Color.bgAnswer)
-                            .frame(width: 70, height: 90))
-                        .padding(.leading, 610)
-                    
-                }
-                HStack{
-                    
-                    ForEach(option.shuffled(), id: \.self) { nums in
-                        
-                        Button {
-                            if nums == correctAnswer
-                            {
-                                self.isCorrect = true
-                                self.correctResult = correctResult+1
-                                Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                                    self.isPopup = true
-                                }
-                            }else{
-                                self.isWrong = true
-                                self.livesCounts = livesCounts-1
-                                
-                                if livesCounts==0{
-                                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                                        self.isPopup = true
-                                    }
-                                }
-                            }
-                        } label: {
-                            AnswerButton(number: nums)
-                        }.padding(.trailing, 10)
-                    }
-                    Spacer()
-                }.padding(.leading, 100)
-                
+                QuestionView(
+                    firstNumber: $firstNumber,
+                    secondNumber: $secondNumber)
+                AnswerMinusWidget(
+                    option: $option,
+                    isCorrect: $isCorrect,
+                    isWrong: $isWrong,
+                    correctAnswer: $correctAnswer,
+                    questionCount: $questionCount,
+                    correctResult: $correctResult,
+                    livesCounts: $livesCounts,
+                    isPopup: $isPopup)
             }.navigationBarBackButtonHidden(true)
                 .padding()
             
             
             if isWrong == true{
-                WrongAnswer().onTapGesture {
-                    self.isWrong = false
+                if livesCounts == 0{
+                    WrongAnswer()
+                }else{
+                    WrongAnswer().onTapGesture {
+                        self.isWrong = false
+                    }
                 }
             }
+            
+            
             if isCorrect == true{
-                CorrectAnswer().onTapGesture {
-                    self.isCorrect = false
-                    newQuestion()
-                    print(option)
-                }
+                CorrectAnswer()
             }
+            
+            
             if isPopup{
-                
                 ExplanationMinusView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
                     self.questionCount = questionCount+1
                     self.isWrong = false
@@ -135,26 +68,24 @@ struct MinusView: View{
                     self.livesCounts = 3
                     self.isPopup = false
                     newQuestion()
-                    
-                    
-                    
                 }
             }
+            
+            
             if questionCount == 5{
                 ScoreBoardview(score: correctResult)
             }
             
+            
         }.previewInterfaceOrientation(.landscapeRight)
             .onAppear{
-//                                SoundService.instance.PlaySound()
+                //                                SoundService.instance.PlaySound()
                 print(option)
                 generateNumber()
                 minusOperation()
                 option.insert(correctAnswer)
                 insertNumber()
                 print(option)
-                
-                
             }
     }
     
@@ -194,6 +125,106 @@ struct MinusView: View{
             }
         }
         option = newOption
+    }
+}
+
+struct QuestionView: View{
+    @Binding var firstNumber: Int
+    @Binding var secondNumber: Int
+    
+    var body: some View{
+        let widthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
+        let heigthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
+        let widthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
+        let heigthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
+        let rows: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+        ZStack{
+            HStack{
+                Spacer().frame(width: 20)
+                if firstNumber > 5 {
+                    LazyHGrid(rows: rows,spacing: 5) {
+                        ForEach(0..<firstNumber, id: \.self) { number in
+                            Image("donat").resizable()
+                                .frame(width: widthQuestion1, height: heigthQuestion1)
+                        }
+                    }
+                }else{
+                    ForEach(0..<firstNumber, id: \.self) { number in
+                        Image("donat").resizable()
+                            .frame(width: widthQuestion1, height: heigthQuestion1)
+                    }
+                }
+                
+                
+                Text("-").font(.largeTitle)
+                if secondNumber > 5 {
+                    
+                    LazyHGrid(rows: rows,spacing: 5) {
+                        ForEach(0..<secondNumber, id: \.self) { number in
+                            Image("donat").resizable()
+                                .frame(width: widthQuestion2, height: heigthQuestion2)
+                        }
+                    }
+                }else{
+                    ForEach(0..<secondNumber, id: \.self) { number in
+                        Image("donat").resizable()
+                            .frame(width: widthQuestion2, height: heigthQuestion2)
+                    }
+                }
+                Text("=").font(.largeTitle)
+                Spacer()
+            }.frame(width: .infinity, height: 120)
+                .background(Color.bgExplanation)
+                .padding(.leading, 80)
+                .padding(.trailing, 110)
+            
+            Image(systemName: "questionmark").resizable()
+                .scaledToFit()
+                .frame(width: 40)
+                .background(Rectangle().fill(Color.bgAnswer)
+                    .frame(width: 70, height: 90))
+                .padding(.leading, 610)
+        }
+    }
+}
+
+struct AnswerMinusWidget: View{
+    @Binding var option: Set<Int>
+    @Binding var isCorrect: Bool
+    @Binding var isWrong: Bool
+    @Binding var correctAnswer: Int
+    @Binding var questionCount: Int
+    @Binding var correctResult: Int
+    @Binding var livesCounts: Int
+    @Binding var isPopup: Bool
+    var body: some View{
+        
+        HStack{
+            ForEach(option.shuffled(), id: \.self) { nums in
+                Button {
+                    if nums == correctAnswer
+                    {
+                        self.isCorrect = true
+                        self.correctResult = correctResult+1
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            self.isPopup = true
+                        }
+                    }else{
+                        self.isWrong = true
+                        self.livesCounts = livesCounts-1
+                        
+                        if livesCounts==0{
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                self.isPopup = true
+                            }
+                        }
+                    }
+                } label: {
+                    AnswerButton(number: nums)
+                }.padding(.trailing, 10)
+            }
+            Spacer()
+        }.padding(.leading, 100)
     }
 }
 
