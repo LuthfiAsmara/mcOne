@@ -15,6 +15,9 @@ struct MinusView: View{
     @State var isCorrect: Bool = false
     @State var isWrong: Bool = false
     @State var option: Set<Int> = []
+    @State var questionCount = 0
+    @State var correctResult = 0
+    @State var isPopup: Bool = false
     
     var body: some View {
         let widthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
@@ -86,9 +89,19 @@ struct MinusView: View{
                             if nums == correctAnswer
                             {
                                 self.isCorrect = true
+                                self.correctResult = correctResult+1
+                                Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                    self.isPopup = true
+                                }
                             }else{
                                 self.isWrong = true
                                 self.livesCounts = livesCounts-1
+                                
+                                if livesCounts==0{
+                                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                        self.isPopup = true
+                                    }
+                                }
                             }
                         } label: {
                             AnswerButton(number: nums)
@@ -113,12 +126,22 @@ struct MinusView: View{
                     print(option)
                 }
             }
-            if livesCounts == 0 {
+            if isPopup{
+                
                 ExplanationMinusView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
+                    self.questionCount = questionCount+1
                     self.isWrong = false
-                    newQuestion()
+                    self.isCorrect = false
                     self.livesCounts = 3
+                    self.isPopup = false
+                    newQuestion()
+                    
+                    
+                    
                 }
+            }
+            if questionCount == 5{
+                ScoreBoardview(score: correctResult)
             }
             
         }.previewInterfaceOrientation(.landscapeRight)

@@ -15,6 +15,8 @@ struct AddView: View {
     @State var isCorrect: Bool = false
     @State var isWrong: Bool = false
     @State var option: Set<Int> = []
+    @State var questionCount = 0
+    @State var correctResult = 0
     
     var body: some View {
         ZStack{
@@ -63,6 +65,7 @@ struct AddView: View {
                             if a == correctAnswer
                             {
                                 self.isCorrect = true
+                                self.correctResult = correctResult+1
                             }else{
                                 self.isWrong = true
                                 self.livesCounts = livesCounts-1
@@ -101,10 +104,14 @@ struct AddView: View {
             }
             if livesCounts == 0 {
                 ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
+                    self.questionCount = questionCount+1
                     self.isWrong = false
                     newQuestion()
                     self.livesCounts = 3
                 }
+            }
+            if questionCount == 5{
+                ScoreBoardview(score: correctResult)
             }
             
         }.previewInterfaceOrientation(.landscapeRight)

@@ -30,7 +30,9 @@ struct HomeView: View {
                                 .foregroundColor(Color.white)
                                 .padding(.bottom, 240)
                                 .rotationEffect(.degrees(-40))
-                            Text("Penjumlahan").whiteTextB15()
+                            Text("Penjumlahan")
+                                
+                                .whiteTextB15()
                                 .padding(.bottom, 380)
                                 .rotationEffect(.degrees(-40))
                                 

@@ -13,12 +13,15 @@ struct Try1View: View{
             ZStack{
                 Image("bg")
                 VStack(spacing: 16.0){
-                    Text("Tong - Tong")
-                        .font(.largeTitle)
+                    Text("abcde")
+                        .font(.custom(
+                            "Poppins-Bold",
+                            size: 70))
                         .foregroundColor(.red)
-                        .fontWeight(.heavy)
+//                        .fontWeight(.heavy)
+//                        .fontDesign(.rounded)
                     
-                    
+                    Text("abcde").font(.largeTitle)
                     HStack(spacing: 20){
                         
                         

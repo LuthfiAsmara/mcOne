@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE01995529DDDC2B0004EFBD /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */; };
 		DE1D928329DD1FFD006A834B /* lives.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928229DD1FFD006A834B /* lives.swift */; };
 		DE1D928529DD3C4A006A834B /* explanationMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928429DD3C4A006A834B /* explanationMinus.swift */; };
 		DE2626FE29D8BBB800646504 /* sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2626FD29D8BBB800646504 /* sound.swift */; };
@@ -22,8 +23,6 @@
 		DECF5CF829C2D244004321EB /* mcOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5CF729C2D244004321EB /* mcOneTests.swift */; };
 		DECF5D0229C2D244004321EB /* mcOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D0129C2D244004321EB /* mcOneUITests.swift */; };
 		DECF5D0429C2D244004321EB /* mcOneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D0329C2D244004321EB /* mcOneUITestsLaunchTests.swift */; };
-		DECF5D1429C2D2E1004321EB /* appBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D1329C2D2E1004321EB /* appBar.swift */; };
-		DECF5D1629C2D2F7004321EB /* bottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D1529C2D2F7004321EB /* bottomNavigation.swift */; };
 		DECF5D1929C2D31A004321EB /* splashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D1829C2D31A004321EB /* splashView.swift */; };
 		DECF5D1C29C2D329004321EB /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D1B29C2D329004321EB /* homeView.swift */; };
 		DECF5D1F29C2D36B004321EB /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D1E29C2D36B004321EB /* color.swift */; };
@@ -33,6 +32,7 @@
 		DECF5D2929C2D3DB004321EB /* minusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D2829C2D3DB004321EB /* minusView.swift */; };
 		DECF5D3129D1563A004321EB /* explanationAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF5D3029D1563A004321EB /* explanationAdd.swift */; };
 		DECFE21A29D5D7D500AB1878 /* answerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECFE21929D5D7D500AB1878 /* answerButton.swift */; };
+		DEFCED0729DE5D2900C06665 /* scoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFCED0629DE5D2900C06665 /* scoreBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		DE1D928229DD1FFD006A834B /* lives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lives.swift; sourceTree = "<group>"; };
 		DE1D928429DD3C4A006A834B /* explanationMinus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationMinus.swift; sourceTree = "<group>"; };
 		DE2626FD29D8BBB800646504 /* sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound.swift; sourceTree = "<group>"; };
@@ -71,8 +72,6 @@
 		DECF5CFD29C2D244004321EB /* mcOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mcOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECF5D0129C2D244004321EB /* mcOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mcOneUITests.swift; sourceTree = "<group>"; };
 		DECF5D0329C2D244004321EB /* mcOneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mcOneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DECF5D1329C2D2E1004321EB /* appBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appBar.swift; sourceTree = "<group>"; };
-		DECF5D1529C2D2F7004321EB /* bottomNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomNavigation.swift; sourceTree = "<group>"; };
 		DECF5D1829C2D31A004321EB /* splashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashView.swift; sourceTree = "<group>"; };
 		DECF5D1B29C2D329004321EB /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		DECF5D1E29C2D36B004321EB /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		DECF5D2829C2D3DB004321EB /* minusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minusView.swift; sourceTree = "<group>"; };
 		DECF5D3029D1563A004321EB /* explanationAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationAdd.swift; sourceTree = "<group>"; };
 		DECFE21929D5D7D500AB1878 /* answerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = answerButton.swift; sourceTree = "<group>"; };
+		DEFCED0629DE5D2900C06665 /* scoreBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE01995329DDDC0A0004EFBD /* font */ = {
+			isa = PBXGroup;
+			children = (
+				DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		DE2626FC29D8BBAC00646504 /* service */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +165,7 @@
 		DECF5CE529C2D243004321EB /* mcOne */ = {
 			isa = PBXGroup;
 			children = (
+				DE01995329DDDC0A0004EFBD /* font */,
 				DE2626FC29D8BBAC00646504 /* service */,
 				DE585DD329D67DE4007C966C /* helper */,
 				DECF5D1229C2D2C3004321EB /* consts */,
@@ -209,8 +218,6 @@
 		DECF5D1129C2D2BC004321EB /* widgets */ = {
 			isa = PBXGroup;
 			children = (
-				DECF5D1329C2D2E1004321EB /* appBar.swift */,
-				DECF5D1529C2D2F7004321EB /* bottomNavigation.swift */,
 				DECF5D3029D1563A004321EB /* explanationAdd.swift */,
 				DECFE21929D5D7D500AB1878 /* answerButton.swift */,
 				DE585DD629D6B49E007C966C /* wrongAnswer.swift */,
@@ -218,6 +225,7 @@
 				DEC2AE1C29D894E600D30961 /* try.swift */,
 				DE1D928229DD1FFD006A834B /* lives.swift */,
 				DE1D928429DD3C4A006A834B /* explanationMinus.swift */,
+				DEFCED0629DE5D2900C06665 /* scoreBoard.swift */,
 			);
 			path = widgets;
 			sourceTree = "<group>";
@@ -371,6 +379,7 @@
 				DECF5CEE29C2D244004321EB /* Preview Assets.xcassets in Resources */,
 				DE6AF71A29DBE14F0052F0BC /* sound.mp3 in Resources */,
 				DECF5CEB29C2D244004321EB /* Assets.xcassets in Resources */,
+				DE01995529DDDC2B0004EFBD /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,11 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1D928329DD1FFD006A834B /* lives.swift in Sources */,
+				DEFCED0729DE5D2900C06665 /* scoreBoard.swift in Sources */,
 				DECF5D2929C2D3DB004321EB /* minusView.swift in Sources */,
 				DECF5D2129C2D378004321EB /* textStyle.swift in Sources */,
 				DECF5D1F29C2D36B004321EB /* color.swift in Sources */,
 				DEC2AE1D29D894E600D30961 /* try.swift in Sources */,
-				DECF5D1429C2D2E1004321EB /* appBar.swift in Sources */,
 				DE6AF71829DA79340052F0BC /* Try1.swift in Sources */,
 				DE585DD529D67DF4007C966C /* orientationDisplay.swift in Sources */,
 				DECF5D1929C2D31A004321EB /* splashView.swift in Sources */,
@@ -408,7 +417,6 @@
 				DECF5D2329C2D3AA004321EB /* user.swift in Sources */,
 				DE585DD729D6B49E007C966C /* wrongAnswer.swift in Sources */,
 				DE585DD929D6B79A007C966C /* correctAnswer.swift in Sources */,
-				DECF5D1629C2D2F7004321EB /* bottomNavigation.swift in Sources */,
 				DE2626FE29D8BBB800646504 /* sound.swift in Sources */,
 				DECF5CE729C2D243004321EB /* mcOneApp.swift in Sources */,
 				DE1D928529DD3C4A006A834B /* explanationMinus.swift in Sources */,
@@ -577,12 +585,13 @@
 				DEVELOPMENT_TEAM = PHLTY62QB3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mcOne/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tung-Tung";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -613,12 +622,13 @@
 				DEVELOPMENT_TEAM = PHLTY62QB3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mcOne/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tung-Tung";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
