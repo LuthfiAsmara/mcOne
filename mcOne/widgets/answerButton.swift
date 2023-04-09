@@ -9,26 +9,45 @@ import SwiftUI
 
 struct AnswerButton: View {
     var number : Int
-    private let items: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
-    private let rows: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
-    
+    let image = "donat"
+   
     
     var body: some View {
-        ZStack{
-            Image("biskuit")
-                .resizable()
-            
-            //                .scaledToFit()
-                .frame(width: 200, height:170)
-            LazyVGrid(columns: items, spacing:6) {
-                ForEach(0..<number, id: \.self) { number in
-                    Image("donat")
-                        .resizable()
-                        .frame(width: 30, height: 30);
+        let columns = Int(ceil(sqrt(Double(number)))) // hitung jumlah kolom berdasarkan input
+        let rows = Int(ceil(Double(number) / Double(columns))) // hitung jumlah baris berdasarkan input
+
+        return ZStack {
+            Color(red: 255/255, green: 249/255, blue: 223/255)
+            VStack(spacing: 0) {
+                ForEach(0..<rows, id: \.self) { row in
+                    HStack(spacing: 0) {
+                        ForEach(0..<columns, id: \.self) { column in
+                            let index = row * columns + column
+                            if index < number {
+                                Image(image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                            } else {
+                                Image(image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(3)
+                                    .hidden()
+
+
+                            }
+                        }
+                    }
                 }
-            }.frame(width: 150)
-            
+            }
+            .padding()
         }
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .frame(width: 180, height: 120)
+        .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+
     }
 }
 

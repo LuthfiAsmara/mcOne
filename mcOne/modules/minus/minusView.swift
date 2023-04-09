@@ -23,25 +23,43 @@ struct MinusView: View{
         
         ZStack{
             Image("bg")
-            Rectangle().fill(Color.black).opacity(0.2)
-            VStack {
-                LivesView(livesCount: livesCounts)
-                    .frame(width: 200)
-                    .padding(.leading, 500)
-                QuestionView(
-                    firstNumber: $firstNumber,
-                    secondNumber: $secondNumber)
-                AnswerMinusWidget(
-                    option: $option,
-                    isCorrect: $isCorrect,
-                    isWrong: $isWrong,
-                    correctAnswer: $correctAnswer,
-                    questionCount: $questionCount,
-                    correctResult: $correctResult,
-                    livesCounts: $livesCounts,
-                    isPopup: $isPopup)
-            }.navigationBarBackButtonHidden(true)
-                .padding()
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: 8)
+
+            HStack{
+                Spacer()
+                VStack {
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        LivesView(livesCount: livesCounts)
+                            .frame(width: 200)
+                    }
+                   
+                    QuestionView(
+                        firstNumber: $firstNumber,
+                        secondNumber: $secondNumber)
+                    Spacer()
+                    AnswerMinusWidget(
+                        option: $option,
+                        isCorrect: $isCorrect,
+                        isWrong: $isWrong,
+                        correctAnswer: $correctAnswer,
+                        questionCount: $questionCount,
+                        correctResult: $correctResult,
+                        livesCounts: $livesCounts,
+                        isPopup: $isPopup)
+                    Spacer()
+                }
+                    
+                Image("teacher")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
+                    .offset(y: 10)
+            }
+            
             
             
             if isWrong == true{
@@ -76,8 +94,8 @@ struct MinusView: View{
                 ScoreBoardview(score: correctResult)
             }
             
-            
-        }.previewInterfaceOrientation(.landscapeRight)
+        }.navigationBarBackButtonHidden(true)
+        .previewInterfaceOrientation(.landscapeRight)
             .onAppear{
                 //                                SoundService.instance.PlaySound()
                 print(option)
@@ -133,100 +151,145 @@ struct QuestionView: View{
     @Binding var secondNumber: Int
     
     var body: some View{
-        let widthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
-        let heigthQuestion1 = firstNumber > 5 ? 30.0 : 50.0
-        let widthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
-        let heigthQuestion2 = secondNumber > 5 ? 30.0 : 50.0
-        let rows: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-        ZStack{
-            HStack{
-                Spacer().frame(width: 20)
-                if firstNumber > 5 {
-                    LazyHGrid(rows: rows,spacing: 5) {
-                        ForEach(0..<firstNumber, id: \.self) { number in
-                            Image("donat").resizable()
-                                .frame(width: widthQuestion1, height: heigthQuestion1)
+        let firstColumns = Int(ceil(sqrt(Double(firstNumber))))
+        let firstRows = Int(ceil(Double(firstNumber) / Double(firstColumns)))
+        let secondColumns = Int(ceil(sqrt(Double(secondNumber))))
+        let secondRows = Int(ceil(Double(secondNumber) / Double(secondColumns))) //
+        HStack{
+            ZStack{
+                Color(red: 255/255, green: 249/255, blue: 223/255)
+                
+                HStack{
+                    ZStack{
+                        VStack(spacing: 0) {
+                            ForEach(0..<firstRows, id: \.self) { row in
+                                HStack(spacing: 0) {
+                                    ForEach(0..<firstColumns, id: \.self) { column in
+                                        let index = row * firstColumns + column
+                                        if index < firstNumber {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)
+                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                            
+                                        } else {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)                               .hidden()
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
-                }else{
-                    ForEach(0..<firstNumber, id: \.self) { number in
-                        Image("donat").resizable()
-                            .frame(width: widthQuestion1, height: heigthQuestion1)
-                    }
-                }
-                
-                
-                Text("-").font(.largeTitle)
-                if secondNumber > 5 {
+                        .padding()
+                    }                      .frame(width: 150)
                     
-                    LazyHGrid(rows: rows,spacing: 5) {
-                        ForEach(0..<secondNumber, id: \.self) { number in
-                            Image("donat").resizable()
-                                .frame(width: widthQuestion2, height: heigthQuestion2)
+                    ZStack{
+                        Text("-")
+                            .font(.largeTitle).fontWeight(.heavy).foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                    }
+                    .frame(width: 50)
+                    
+                    ZStack{
+                        VStack(spacing: 0) {
+                            ForEach(0..<secondRows, id: \.self) { row in
+                                HStack(spacing: 0) {
+                                    ForEach(0..<secondColumns, id: \.self) { column in
+                                        let index = row * secondColumns + column
+                                        if index < secondNumber {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)
+                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                            
+                                        } else {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)                               .hidden()
+                                            //                                                                        Rectangle().fill(Color.clear) .scaledToFit()
+                                        }
+                                    }
+                                }
+                            }
                         }
+                        .padding()
+                    }                      .frame(width: 150)
+                    ZStack{
+                        Text("=")
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
                     }
-                }else{
-                    ForEach(0..<secondNumber, id: \.self) { number in
-                        Image("donat").resizable()
-                            .frame(width: widthQuestion2, height: heigthQuestion2)
-                    }
+                    .frame(width: 50)
+                    
                 }
-                Text("=").font(.largeTitle)
-                Spacer()
-            }.frame(width: .infinity, height: 120)
-                .background(Color.bgExplanation)
-                .padding(.leading, 80)
-                .padding(.trailing, 110)
+                
+            }
+            .frame(width: 470, height: 120)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
             
-            Image(systemName: "questionmark").resizable()
-                .scaledToFit()
-                .frame(width: 40)
-                .background(Rectangle().fill(Color.bgAnswer)
-                    .frame(width: 70, height: 90))
-                .padding(.leading, 610)
+            Rectangle()
+                .foregroundColor(Color(red: 235/255, green: 194/255, blue: 151/255))
+                .frame(width: 70, height: 70)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+                .overlay(
+                    Text("?")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                    
+                )
+            
         }
     }
 }
 
 struct AnswerMinusWidget: View{
-    @Binding var option: Set<Int>
-    @Binding var isCorrect: Bool
-    @Binding var isWrong: Bool
-    @Binding var correctAnswer: Int
-    @Binding var questionCount: Int
-    @Binding var correctResult: Int
-    @Binding var livesCounts: Int
-    @Binding var isPopup: Bool
-    var body: some View{
-        
-        HStack{
-            ForEach(option.shuffled(), id: \.self) { nums in
-                Button {
-                    if nums == correctAnswer
-                    {
-                        self.isCorrect = true
-                        self.correctResult = correctResult+1
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                            self.isPopup = true
-                        }
-                    }else{
-                        self.isWrong = true
-                        self.livesCounts = livesCounts-1
-                        
-                        if livesCounts==0{
+        @Binding var option: Set<Int>
+        @Binding var isCorrect: Bool
+        @Binding var isWrong: Bool
+        @Binding var correctAnswer: Int
+        @Binding var questionCount: Int
+        @Binding var correctResult: Int
+        @Binding var livesCounts: Int
+        @Binding var isPopup: Bool
+        var body: some View{
+            
+            HStack{
+                ForEach(option.shuffled(), id: \.self) { nums in
+                    Button {
+                        if nums == correctAnswer
+                        {
+                            self.isCorrect = true
+                            self.correctResult = correctResult+1
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
                                 self.isPopup = true
                             }
+                        }else{
+                            self.isWrong = true
+                            self.livesCounts = livesCounts-1
+                            
+                            if livesCounts==0{
+                                Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                    self.isPopup = true
+                                }
+                            }
                         }
+                    } label: {
+                        AnswerButton(number: nums)
                     }
-                } label: {
-                    AnswerButton(number: nums)
-                }.padding(.trailing, 10)
+                }
+              
             }
-            Spacer()
-        }.padding(.leading, 100)
+        }
     }
-}
+
 
 
 struct MinusView_Previews: PreviewProvider {

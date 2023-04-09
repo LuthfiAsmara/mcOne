@@ -12,6 +12,7 @@ struct LivesView: View{
     private let rows: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     var body: some View{
         HStack{
+            
             LazyVGrid(columns: rows, spacing:5) {
                 ForEach(0..<livesCount, id: \.self) { number in
                     Image("candy")

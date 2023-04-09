@@ -23,25 +23,43 @@ struct AddView: View {
     var body: some View {
         ZStack{
             Image("bg")
-            Rectangle().fill(Color.black).opacity(0.2)
-            VStack {
-                LivesView(livesCount: livesCounts)
-                    .frame(width: 200)
-                    .padding(.leading, 500)
-               QuestionAddWidget(
-                firstNumber: $firstNumber,
-                secondNumber: $secondNumber)
-                AnswerAddWidget(
-                    option: $option,
-                    isCorrect: $isCorrect,
-                    isWrong: $isWrong,
-                    correctAnswer: $correctAnswer,
-                    questionCount: $questionCount,
-                    correctResult: $correctResult,
-                    livesCounts: $livesCounts,
-                    isPopup: $isPopup)
-            }.navigationBarBackButtonHidden(true)
-                .padding()
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: 8)
+
+            HStack{
+                Spacer()
+                VStack {
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        LivesView(livesCount: livesCounts)
+                            .frame(width: 200)
+                    }
+                   
+                    QuestionAddWidget(
+                        firstNumber: $firstNumber,
+                        secondNumber: $secondNumber)
+                    Spacer()
+                    AnswerAddWidget(
+                        option: $option,
+                        isCorrect: $isCorrect,
+                        isWrong: $isWrong,
+                        correctAnswer: $correctAnswer,
+                        questionCount: $questionCount,
+                        correctResult: $correctResult,
+                        livesCounts: $livesCounts,
+                        isPopup: $isPopup)
+                    Spacer()
+                }
+                    
+                Image("teacher")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
+                    .offset(y: 10)
+            }
+            
             
             
             if isWrong == true{
@@ -61,12 +79,14 @@ struct AddView: View {
             
             
             if isPopup{
-                ExplanationMinusView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
+                ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
                     self.questionCount = questionCount+1
                     self.isWrong = false
                     self.isCorrect = false
-                    self.livesCounts = 3
                     self.isPopup = false
+                    if livesCounts == 0{
+                        self.livesCounts = 3
+                    }
                     newQuestion()
                 }
             }
@@ -76,9 +96,10 @@ struct AddView: View {
                 ScoreBoardview(score: correctResult)
             }
             
-        }.previewInterfaceOrientation(.landscapeRight)
+        }.navigationBarBackButtonHidden(true)
+        .previewInterfaceOrientation(.landscapeRight)
             .onAppear{
-                //              SoundService.instance.PlaySound()
+//                              SoundService.instance.PlaySound()
                 
                 print(option)
                 plusOperation()
@@ -127,35 +148,100 @@ struct QuestionAddWidget: View{
     @Binding var firstNumber: Int
     @Binding var secondNumber: Int
     var body: some View{
-        ZStack{
-            HStack{
-                Spacer().frame(width: 20)
-                ForEach(0..<firstNumber, id: \.self) { number in
-                    Image("donat").resizable()
-                        .frame(width: 50, height: 50)
-                }
-                Text("+").font(.largeTitle)
-                ForEach(0..<secondNumber, id: \.self) { number in
-                    Image("donat").resizable()
-                        .frame(width: 50, height: 50)
-                }
-                Text("=").font(.largeTitle)
+        let firstColumns = Int(ceil(sqrt(Double(firstNumber))))
+        let firstRows = Int(ceil(Double(firstNumber) / Double(firstColumns)))
+        let secondColumns = Int(ceil(sqrt(Double(secondNumber))))
+        let secondRows = Int(ceil(Double(secondNumber) / Double(secondColumns))) //
+        HStack{
+            ZStack{
+                Color(red: 255/255, green: 249/255, blue: 223/255)
                 
+                HStack{
+                    ZStack{
+                        VStack(spacing: 0) {
+                            ForEach(0..<firstRows, id: \.self) { row in
+                                HStack(spacing: 0) {
+                                    ForEach(0..<firstColumns, id: \.self) { column in
+                                        let index = row * firstColumns + column
+                                        if index < firstNumber {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)
+                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                            
+                                        } else {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)                               .hidden()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                    }                      .frame(width: 150)
+                    
+                    ZStack{
+                        Text("+")
+                            .font(.largeTitle).fontWeight(.heavy).foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                    }
+                    .frame(width: 50)
+                    
+                    ZStack{
+                        VStack(spacing: 0) {
+                            ForEach(0..<secondRows, id: \.self) { row in
+                                HStack(spacing: 0) {
+                                    ForEach(0..<secondColumns, id: \.self) { column in
+                                        let index = row * secondColumns + column
+                                        if index < secondNumber {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)
+                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                            
+                                        } else {
+                                            Image("donat")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(3)                               .hidden()
+                                            //                                                                        Rectangle().fill(Color.clear) .scaledToFit()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                    }                      .frame(width: 150)
+                    ZStack{
+                        Text("=")
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                    }
+                    .frame(width: 50)
+                    
+                }
                 
-                Spacer()
-            }.frame(width: .infinity, height: 120)
-                .background(Color.bgExplanation)
-                .padding(.leading, 80)
-                .padding(.trailing, 110)
+            }
+            .frame(width: 470, height: 120)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
             
-            
-            Image(systemName: "questionmark").resizable()
-                .scaledToFit()
-                .frame(width: 40)
-                .background(Rectangle().fill(Color.bgAnswer)
-                    .frame(width: 70, height: 90))
-                .padding(.leading, 610)
-            
+            Rectangle()
+                .foregroundColor(Color(red: 235/255, green: 194/255, blue: 151/255))
+                .frame(width: 70, height: 70)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+                .overlay(
+                    Text("?")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                    
+                )
         }
     }
 }
@@ -193,10 +279,9 @@ struct AnswerAddWidget: View{
                     }
                 } label: {
                     AnswerButton(number: a)
-                }.padding(.trailing, 10)
+                }
             }
-            Spacer()
-        }.padding(.leading, 100)
+        }
     }
 }
 struct AddView_Previews: PreviewProvider {
