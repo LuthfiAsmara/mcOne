@@ -32,11 +32,6 @@ struct MinusView: View{
                 Spacer()
                 VStack {
                     Spacer()
-                    HStack{
-                        Spacer()
-                        LivesView(livesCount: livesCounts)
-                            .frame(width: 200)
-                    }
                    
                     QuestionView(
                         firstNumber: $firstNumber,
@@ -54,11 +49,18 @@ struct MinusView: View{
                     Spacer()
                 }
                     
-                Image("teacher")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
-                    .offset(y: 10)
+                VStack{
+                    LivesView(livesCount: livesCounts)
+                        .frame(width: 200)
+                        .offset(x: 15, y: 10)
+                    
+                    Image("teacher")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 300, alignment: .bottomTrailing)
+                        .offset(y: 40)
+
+                }
             }
             
             

@@ -32,12 +32,6 @@ struct AddView: View {
                 Spacer()
                 VStack {
                     Spacer()
-                    HStack{
-                        Spacer()
-                        LivesView(livesCount: livesCounts)
-                            .frame(width: 200)
-                    }
-                   
                     QuestionAddWidget(
                         firstNumber: $firstNumber,
                         secondNumber: $secondNumber)
@@ -53,12 +47,18 @@ struct AddView: View {
                         isPopup: $isPopup)
                     Spacer()
                 }
+                VStack{
+                    LivesView(livesCount: livesCounts)
+                        .frame(width: 200)
+                        .offset(x: 15, y: 10)
                     
-                Image("teacher")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
-                    .offset(y: 10)
+                    Image("teacher")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 300, alignment: .bottomTrailing)
+                        .offset(y: 40)
+
+                }
             }
             
             
