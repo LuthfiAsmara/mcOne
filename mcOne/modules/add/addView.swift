@@ -18,6 +18,7 @@ struct AddView: View {
     @State var questionCount = 0
     @State var correctResult = 0
     @State var isPopup: Bool = false
+    @State var isScoreBoard: Bool = false
 
     
     var body: some View {
@@ -84,15 +85,16 @@ struct AddView: View {
                     self.isWrong = false
                     self.isCorrect = false
                     self.isPopup = false
-                    if livesCounts == 0{
-                        self.livesCounts = 3
+                    if livesCounts == 0 || questionCount == 5{
+                        isScoreBoard.self = true
+                    }else{
+                        newQuestion()
                     }
-                    newQuestion()
                 }
             }
             
             
-            if questionCount == 5{
+            if isScoreBoard{
                 ScoreBoardview(score: correctResult)
             }
             

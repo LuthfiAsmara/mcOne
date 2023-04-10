@@ -18,6 +18,7 @@ struct MinusView: View{
     @State var questionCount = 0
     @State var correctResult = 0
     @State var isPopup: Bool = false
+    @State var isScoreBoard: Bool = false
     
     var body: some View {
         
@@ -83,14 +84,19 @@ struct MinusView: View{
                     self.questionCount = questionCount+1
                     self.isWrong = false
                     self.isCorrect = false
-                    self.livesCounts = 3
                     self.isPopup = false
-                    newQuestion()
+                    if livesCounts == 0 || questionCount == 5{
+                        isScoreBoard.self = true
+                    }else{
+                        newQuestion()
+                    }
+                    
+                    
                 }
             }
             
             
-            if questionCount == 5{
+            if isScoreBoard{
                 ScoreBoardview(score: correctResult)
             }
             
