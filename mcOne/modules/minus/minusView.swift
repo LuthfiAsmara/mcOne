@@ -27,17 +27,13 @@ struct MinusView: View{
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8)
-
+            
             HStack{
                 Spacer()
                 VStack {
                     Spacer()
-                    HStack{
-                        Spacer()
-                        LivesView(livesCount: livesCounts)
-                            .frame(width: 200)
-                    }
-                   
+                    
+                    
                     QuestionView(
                         firstNumber: $firstNumber,
                         secondNumber: $secondNumber)
@@ -53,12 +49,19 @@ struct MinusView: View{
                         isPopup: $isPopup)
                     Spacer()
                 }
+                
+                VStack{
+                    LivesView(livesCount: livesCounts)
+                        .frame(width: 200)
+                        .offset(x: 15, y: 10)
                     
-                Image("teacher")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
-                    .offset(y: 10)
+                    Image("teacher")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 300, alignment: .bottomTrailing)
+                        .offset(y: 40)
+                    
+                }
             }
             
             
@@ -102,15 +105,15 @@ struct MinusView: View{
             
         }
         .previewInterfaceOrientation(.landscapeRight)
-            .onAppear{
-                //                                SoundService.instance.PlaySound()
-                print(option)
-                generateNumber()
-                minusOperation()
-                option.insert(correctAnswer)
-                insertNumber()
-                print(option)
-            }
+        .onAppear{
+            //                                SoundService.instance.PlaySound()
+            print(option)
+            generateNumber()
+            minusOperation()
+            option.insert(correctAnswer)
+            insertNumber()
+            print(option)
+        }
     }
     
     func generateNumber(){
@@ -257,44 +260,44 @@ struct QuestionView: View{
 }
 
 struct AnswerMinusWidget: View{
-        @Binding var option: Set<Int>
-        @Binding var isCorrect: Bool
-        @Binding var isWrong: Bool
-        @Binding var correctAnswer: Int
-        @Binding var questionCount: Int
-        @Binding var correctResult: Int
-        @Binding var livesCounts: Int
-        @Binding var isPopup: Bool
-        var body: some View{
-            
-            HStack{
-                ForEach(option.shuffled(), id: \.self) { nums in
-                    Button {
-                        if nums == correctAnswer
-                        {
-                            self.isCorrect = true
-                            self.correctResult = correctResult+1
+    @Binding var option: Set<Int>
+    @Binding var isCorrect: Bool
+    @Binding var isWrong: Bool
+    @Binding var correctAnswer: Int
+    @Binding var questionCount: Int
+    @Binding var correctResult: Int
+    @Binding var livesCounts: Int
+    @Binding var isPopup: Bool
+    var body: some View{
+        
+        HStack{
+            ForEach(option.shuffled(), id: \.self) { nums in
+                Button {
+                    if nums == correctAnswer
+                    {
+                        self.isCorrect = true
+                        self.correctResult = correctResult+1
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            self.isPopup = true
+                        }
+                    }else{
+                        self.isWrong = true
+                        self.livesCounts = livesCounts-1
+                        
+                        if livesCounts==0{
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
                                 self.isPopup = true
                             }
-                        }else{
-                            self.isWrong = true
-                            self.livesCounts = livesCounts-1
-                            
-                            if livesCounts==0{
-                                Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                                    self.isPopup = true
-                                }
-                            }
                         }
-                    } label: {
-                        AnswerButton(number: nums)
                     }
+                } label: {
+                    AnswerButton(number: nums)
                 }
-              
             }
+            
         }
     }
+}
 
 
 
