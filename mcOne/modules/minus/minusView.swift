@@ -100,7 +100,7 @@ struct MinusView: View{
                 ScoreBoardview(score: correctResult)
             }
             
-        }.navigationBarBackButtonHidden(true)
+        }
         .previewInterfaceOrientation(.landscapeRight)
             .onAppear{
                 //                                SoundService.instance.PlaySound()

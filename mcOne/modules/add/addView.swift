@@ -19,7 +19,7 @@ struct AddView: View {
     @State var correctResult = 0
     @State var isPopup: Bool = false
     @State var isScoreBoard: Bool = false
-
+    
     
     var body: some View {
         ZStack{
@@ -27,17 +27,13 @@ struct AddView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8)
-
+            
             HStack{
                 Spacer()
                 VStack {
                     Spacer()
-                    HStack{
-                        Spacer()
-                        LivesView(livesCount: livesCounts)
-                            .frame(width: 200)
-                    }
-                   
+                    
+                    
                     QuestionAddWidget(
                         firstNumber: $firstNumber,
                         secondNumber: $secondNumber)
@@ -53,12 +49,19 @@ struct AddView: View {
                         isPopup: $isPopup)
                     Spacer()
                 }
+                
+                VStack{
+                    LivesView(livesCount: livesCounts)
+                        .frame(width: 200)
+                        .offset(x: 15, y: 10)
                     
-                Image("teacher")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 180, height: 400, alignment: .bottomTrailing)
-                    .offset(y: 10)
+                    Image("teacher")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 300, alignment: .bottomTrailing)
+                        .offset(y: 40)
+                    
+                }
             }
             
             
@@ -98,18 +101,18 @@ struct AddView: View {
                 ScoreBoardview(score: correctResult)
             }
             
-        }.navigationBarBackButtonHidden(true)
+        }
         .previewInterfaceOrientation(.landscapeRight)
-            .onAppear{
-//                              SoundService.instance.PlaySound()
-                
-                print(option)
-                plusOperation()
-                option.insert(correctAnswer)
-                insertNumber()
-                print(option)
-                
-            }
+        .onAppear{
+            //                              SoundService.instance.PlaySound()
+            
+            print(option)
+            plusOperation()
+            option.insert(correctAnswer)
+            insertNumber()
+            print(option)
+            
+        }
     }
     
     private func generateNumber(){
