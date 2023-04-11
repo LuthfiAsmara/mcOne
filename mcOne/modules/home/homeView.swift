@@ -22,6 +22,7 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 350)
+                            
                                 
                             Image(systemName: "plus")
                                 .resizable()
@@ -29,6 +30,7 @@ struct HomeView: View {
                                 .frame(width: 30)
                                 .foregroundColor(Color.white)
                                 .padding(.bottom, 240)
+                                
                                 
                             Text("Penjumlahan")
                                 
@@ -39,7 +41,7 @@ struct HomeView: View {
                         }
                             
                     }.padding(.trailing, 30)
-                        .rotationEffect(.degrees(-40))
+                        .rotationEffect(.degrees(-15))
                         
                         
                     
@@ -62,7 +64,7 @@ struct HomeView: View {
                         }
 
                     }.padding(.leading, 30)
-                        .rotationEffect(.degrees(40))
+                        .rotationEffect(.degrees(15))
                 }.padding(.top, 300)
             }
         }
