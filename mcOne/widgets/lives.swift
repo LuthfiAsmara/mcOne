@@ -12,7 +12,7 @@ struct LivesView: View{
     var body: some View{
         HStack{
                 ForEach(0..<livesCount, id: \.self) { number in
-                    Image("candy")
+                    Image("Carrot")
                         .resizable()
                         .scaledToFit()
                         .frame(width:30)

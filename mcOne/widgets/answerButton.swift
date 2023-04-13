@@ -17,7 +17,7 @@ struct AnswerButton: View {
         let rows = Int(ceil(Double(number) / Double(columns))) // hitung jumlah baris berdasarkan input
 
         return ZStack {
-            Color(red: 255/255, green: 249/255, blue: 223/255)
+            Color("bajuyona")
             VStack(spacing: 0) {
                 ForEach(0..<rows, id: \.self) { row in
                     HStack(spacing: 0) {
@@ -28,7 +28,7 @@ struct AnswerButton: View {
                                     .resizable()
                                     .scaledToFit()
                                     .padding(5)
-                                    .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                    .shadow(color: Color("shadow"), radius: 1, x: -2, y: 4)
                             } else {
                                 Image(image)
                                     .resizable()
@@ -46,7 +46,7 @@ struct AnswerButton: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .frame(width: 180, height: 120)
-        .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+        .shadow(color: Color("shadow"), radius: 2, x: -2, y: 4)
 
     }
 }

@@ -18,7 +18,11 @@ struct CorrectAnswer: View{
                 .resizable()
                 .scaledToFit()
                 .frame(width: 220)
-            Text("Hore, jawaban kamu benar").padding(.top,200).whiteTextB15()
+            Text("Hore, jawaban kamu benar").padding(.top,200)
+                .font(.custom("Tung2-Regular", fixedSize: 20))
+                .fontWeight(.heavy)
+                .foregroundColor(Color("font"))
+
                 
             
         }

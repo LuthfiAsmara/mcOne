@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0547DB3229E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0547DB3129E65C0C00D82C54 /* Tung2-Regular.ttf */; };
+		0547DB3329E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0547DB3129E65C0C00D82C54 /* Tung2-Regular.ttf */; };
+		0547DB3429E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0547DB3129E65C0C00D82C54 /* Tung2-Regular.ttf */; };
 		DE01995529DDDC2B0004EFBD /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */; };
 		DE1D928329DD1FFD006A834B /* lives.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928229DD1FFD006A834B /* lives.swift */; };
 		DE1D928529DD3C4A006A834B /* explanationMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D928429DD3C4A006A834B /* explanationMinus.swift */; };
@@ -52,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0547DB3129E65C0C00D82C54 /* Tung2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tung2-Regular.ttf"; sourceTree = "<group>"; };
 		DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		DE1D928229DD1FFD006A834B /* lives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lives.swift; sourceTree = "<group>"; };
 		DE1D928429DD3C4A006A834B /* explanationMinus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explanationMinus.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		DE01995329DDDC0A0004EFBD /* font */ = {
 			isa = PBXGroup;
 			children = (
+				0547DB3129E65C0C00D82C54 /* Tung2-Regular.ttf */,
 				DE01995429DDDC2B0004EFBD /* Poppins-Bold.ttf */,
 			);
 			path = font;
@@ -379,6 +384,7 @@
 				DE6AF71A29DBE14F0052F0BC /* sound.mp3 in Resources */,
 				DECF5CEB29C2D244004321EB /* Assets.xcassets in Resources */,
 				DE01995529DDDC2B0004EFBD /* Poppins-Bold.ttf in Resources */,
+				0547DB3229E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0547DB3329E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0547DB3429E65C0C00D82C54 /* Tung2-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
