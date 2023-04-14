@@ -104,8 +104,7 @@ struct AddView: View {
         }
         .previewInterfaceOrientation(.landscapeRight)
         .onAppear{
-            //                              SoundService.instance.PlaySound()
-            
+//            SoundService.instance.PlaySound()
             print(option)
             plusOperation()
             option.insert(correctAnswer)
