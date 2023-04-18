@@ -15,7 +15,7 @@ struct SplashView: View {
             HomeView()
         } else {
             VStack {
-                Image("math-logo")
+                Image("LOGO TUNG-TUNG")
                     .resizable()
                     .frame(
                         width: 200,

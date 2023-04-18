@@ -50,7 +50,7 @@ struct AddView: View {
                 VStack{
                     LivesView(livesCount: livesCounts)
                         .frame(width: 200)
-                        .offset(x: 15, y: 10)
+                        .offset(x: 0, y: 15)
                     
                     Image("teacher")
                         .resizable()
