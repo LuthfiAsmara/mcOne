@@ -36,6 +36,7 @@ struct HomeView: View {
                                 
                                 .whiteTextB15()
                                 .padding(.bottom, 380)
+                                
                                
                                 
                         }
@@ -60,6 +61,7 @@ struct HomeView: View {
                                 
                             Text("Pengurangan").whiteTextB15()
                                 .padding(.bottom, 380)
+                                .font(.custom("Poppins-Bold", size: 50))
                                
                         }
 

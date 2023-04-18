@@ -17,7 +17,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -29,7 +29,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -41,7 +41,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -53,7 +53,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -65,7 +65,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -77,7 +77,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -89,7 +89,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -101,7 +101,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -113,7 +113,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -125,7 +125,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -137,7 +137,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -149,7 +149,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -161,7 +161,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -173,7 +173,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -185,7 +185,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -197,7 +197,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -209,7 +209,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -222,7 +222,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -234,7 +234,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -246,7 +246,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -258,7 +258,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -270,7 +270,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -282,7 +282,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -294,7 +294,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -306,7 +306,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -318,7 +318,7 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)
@@ -330,7 +330,19 @@ class SoundService{
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
             player = try AVAudioPlayer(contentsOf: soundUrl)
-            player?.numberOfLoops = -1
+            player?.numberOfLoops = 0
+            player?.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func mariKitaHitungBersama(){
+        guard let soundUrl = Bundle.main.url(forResource: "mariKitaHitungBersama", withExtension: "m4a") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            player = try AVAudioPlayer(contentsOf: soundUrl)
+            player?.numberOfLoops = 0
             player?.play()
         } catch let error {
             print(error.localizedDescription)

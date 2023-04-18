@@ -84,9 +84,10 @@ struct ExplanationMinusView : View{
                                             default:
                                                 SoundService.instance.jadi()
                                             }
+//                                            SoundService.instance.player?.stop()
                                             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                                                 self.stepTwo = true
-                                                SoundService.instance.player?.stop()
+                                                
                                             }
                                         }
                                     }
@@ -108,9 +109,10 @@ struct ExplanationMinusView : View{
                                             
                                         }.onAppear{
                                             SoundService.instance.dikurang()
+//                                            SoundService.instance.player?.stop()
                                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                                                 self.stepThree = true
-                                                SoundService.instance.player?.stop()
+                                                
                                             }
                                            
                                         }
@@ -141,7 +143,7 @@ struct ExplanationMinusView : View{
                                             
                                             
                                         }.onAppear{
-                                            switch num1{
+                                            switch num2{
                                             case 1:
                                                 SoundService.instance.satuAkhir()
                                             case 2:
@@ -163,9 +165,10 @@ struct ExplanationMinusView : View{
                                             default:
                                                 SoundService.instance.jadi()
                                             }
+//                                            SoundService.instance.player?.stop()
+
                                             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                                                 self.stepFour = true
-                                                SoundService.instance.player?.stop()
                                             }
                                         }
                                     }
@@ -191,9 +194,10 @@ struct ExplanationMinusView : View{
                                             
                                         }.onAppear{
                                             SoundService.instance.samaDengan()
+//                                            SoundService.instance.player?.stop()
+
                                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                                                 self.stepFive = true
-                                                SoundService.instance.player?.stop()
                                             }
                                             
                                         }
@@ -223,7 +227,7 @@ struct ExplanationMinusView : View{
                                         .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
                                         
                                     }.onAppear{
-                                        switch num1{
+                                        switch ans{
                                         case 1:
                                             SoundService.instance.satuAkhir()
                                         case 2:
@@ -245,8 +249,10 @@ struct ExplanationMinusView : View{
                                         default:
                                             SoundService.instance.jadi()
                                         }
-                                        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-                                            SoundService.instance.player?.stop()
+//                                        SoundService.instance.player?.stop()
+
+                                        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                                            SoundService.instance.nahMinus()
                                         }
                                     }
                                 }
@@ -263,7 +269,11 @@ struct ExplanationMinusView : View{
                         .frame(width: 400, height: 400, alignment: .trailing)
                         .offset(x: 200, y: 30)
         }.onAppear{
-            self.stepOne = true
+            SoundService.instance.mariKitaHitungBersama()
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                self.stepOne = true
+            }
+            
 
         }
     }

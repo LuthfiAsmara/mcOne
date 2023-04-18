@@ -19,7 +19,7 @@ struct AddView: View {
     @State var correctResult = 0
     @State var isPopup: Bool = false
     @State var isScoreBoard: Bool = false
-    
+
     
     var body: some View {
         ZStack{
@@ -27,13 +27,11 @@ struct AddView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8)
-            
+
             HStack{
                 Spacer()
                 VStack {
                     Spacer()
-                    
-                    
                     QuestionAddWidget(
                         firstNumber: $firstNumber,
                         secondNumber: $secondNumber)
@@ -49,7 +47,6 @@ struct AddView: View {
                         isPopup: $isPopup)
                     Spacer()
                 }
-                
                 VStack{
                     LivesView(livesCount: livesCounts)
                         .frame(width: 200)
@@ -60,7 +57,6 @@ struct AddView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 180, height: 300, alignment: .bottomTrailing)
                         .offset(y: 40)
-                    
                 }
             }
             
@@ -101,17 +97,18 @@ struct AddView: View {
                 ScoreBoardview(score: correctResult)
             }
             
-        }
+        }.navigationBarBackButtonHidden(true)
         .previewInterfaceOrientation(.landscapeRight)
-        .onAppear{
-//            SoundService.instance.PlaySound()
-            print(option)
-            plusOperation()
-            option.insert(correctAnswer)
-            insertNumber()
-            print(option)
-            
-        }
+            .onAppear{
+//                              SoundService.instance.PlaySound()
+                
+                print(option)
+                plusOperation()
+                option.insert(correctAnswer)
+                insertNumber()
+                print(option)
+                
+            }
     }
     
     private func generateNumber(){
@@ -158,8 +155,7 @@ struct QuestionAddWidget: View{
         let secondRows = Int(ceil(Double(secondNumber) / Double(secondColumns))) //
         HStack{
             ZStack{
-                Color(red: 255/255, green: 249/255, blue: 223/255)
-                
+                Color("cream")
                 HStack{
                     ZStack{
                         VStack(spacing: 0) {
@@ -172,7 +168,7 @@ struct QuestionAddWidget: View{
                                                 .resizable()
                                                 .scaledToFit()
                                                 .padding(3)
-                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                                .shadow(color: Color("shadow"), radius: 1, x: -2, y: 4)
                                             
                                         } else {
                                             Image("donat")
@@ -189,7 +185,9 @@ struct QuestionAddWidget: View{
                     
                     ZStack{
                         Text("+")
-                            .font(.largeTitle).fontWeight(.heavy).foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                            .font(.custom("Tung2-Regular.ttf", size: 40))
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("font"))
                     }
                     .frame(width: 50)
                     
@@ -204,14 +202,13 @@ struct QuestionAddWidget: View{
                                                 .resizable()
                                                 .scaledToFit()
                                                 .padding(3)
-                                                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 1, x: -2, y: 4)
+                                                .shadow(color: Color("shadow"), radius: 1, x: -2, y: 4)
                                             
                                         } else {
                                             Image("donat")
                                                 .resizable()
                                                 .scaledToFit()
                                                 .padding(3)                               .hidden()
-                                            //                                                                        Rectangle().fill(Color.clear) .scaledToFit()
                                         }
                                     }
                                 }
@@ -221,9 +218,9 @@ struct QuestionAddWidget: View{
                     }                      .frame(width: 150)
                     ZStack{
                         Text("=")
-                            .font(.largeTitle)
+                            .font(.custom("Tung2-Regular.ttf", size: 40))
                             .fontWeight(.heavy)
-                            .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
+                            .foregroundColor(Color("font"))
                     }
                     .frame(width: 50)
                     
@@ -232,20 +229,21 @@ struct QuestionAddWidget: View{
             }
             .frame(width: 470, height: 120)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+            .shadow(color: Color("shadow"), radius: 2, x: -2, y: 4)
             
             Rectangle()
-                .foregroundColor(Color(red: 235/255, green: 194/255, blue: 151/255))
+                .foregroundColor(Color("bajuyona"))
                 .frame(width: 70, height: 70)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .shadow(color: Color(red: 96/255, green: 96/255, blue: 96/255, opacity: 0.1), radius: 2, x: -2, y: 4)
+                .shadow(color: Color("shadow"), radius: 2, x: -2, y: 4)
                 .overlay(
                     Text("?")
-                        .font(.largeTitle)
+                        .font(.custom("Tung2-Regular.ttf", size: 40))
                         .fontWeight(.heavy)
-                        .foregroundColor(Color(red: 0.349, green: 0.288, blue: 0.224, opacity: 100.0))
-                    
+                        .foregroundColor(Color("font"))
                 )
+                
+
         }
     }
 }
