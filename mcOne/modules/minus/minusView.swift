@@ -31,13 +31,24 @@ struct MinusView: View{
             HStack{
                 Spacer()
                 VStack {
-                    Spacer()
+                    HStack{
+                        NavigationLink {
+                            HomeView()  } label: {
+                                Image("back")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 30)
+                            }
+                        Spacer()
+                    }
+                    Spacer().frame(height: 20)
+                    
                     
                     
                     QuestionView(
                         firstNumber: $firstNumber,
                         secondNumber: $secondNumber)
-                    Spacer()
+                    Spacer().frame(height: 20)
                     AnswerMinusWidget(
                         option: $option,
                         isCorrect: $isCorrect,
@@ -47,7 +58,7 @@ struct MinusView: View{
                         correctResult: $correctResult,
                         livesCounts: $livesCounts,
                         isPopup: $isPopup)
-                    Spacer()
+                    
                 }
                 
                 VStack{
