@@ -14,69 +14,29 @@ struct HomeView: View {
         NavigationStack{
             ZStack{
                 Image("bg")
-                Rectangle().fill(Color.black).opacity(0.2)
-               
                     Image("logo")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 280)
-                        .offset(y: -80)
+                        .frame(width: 400)
+                        .offset(y: -30)
                     HStack{
                         NavigationLink(destination: AddView()){
-                            ZStack{
-                                Image( "plus")
+                                Image("Button-Tambah")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: 320)
-                                
-                                
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30)
-                                    .foregroundColor(Color.white)
-                                    .offset(y: -110)
-                                
-                                Text("Penjumlahan")
-                                    .font(.custom("Tung2-Regular", size: 24))
-                                    .whiteTextB15()
-                                    .offset(y: -170)
-                                
-                                
-                                
-                            }
-                            
-                        }.padding(.trailing, 20)
-                            .rotationEffect(.degrees(-8))
-                        
-                        
+                                    .frame(height: 50)
+                        }
                         
                         NavigationLink(destination: MinusView()){
                             ZStack{
-                                Image( "minus")
+                                Image( "Button-Kurang")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: 320)
-                                
-                                Image(systemName: "minus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30)
-                                    .foregroundColor(Color.white)
-                                    .offset(y: -110)
-                                
-                                Text("Pengurangan")
-                                    .font(.custom("Tung2-Regular", size: 24))
-                                    .whiteTextB15()
-                                    .offset(y: -170)
-                                
-                                
+                                    .frame(height: 50)
                             }
                             
-                        }.padding(.leading, 15)
-                            .rotationEffect(.degrees(8))
-                    }.padding(.top, 320)
-                    .offset(y:40)
+                        }.padding(.leading)
+                    }.padding(.top, 260)
                 
             }
         }.navigationBarBackButtonHidden(true)
