@@ -15,6 +15,7 @@ struct ScoreBoardview: View{
                 Rectangle().fill(Color.black).opacity(0.2)
                 VStack{
                     Text("Skor kamu")
+                    Text("")
                     Text("\(score*20)")
                     Spacer().frame(height: 50)
                     NavigationLink {

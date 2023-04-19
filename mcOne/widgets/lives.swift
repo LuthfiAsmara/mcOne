@@ -15,7 +15,8 @@ struct LivesView: View{
                     Image("Icecream")
                         .resizable()
                         .scaledToFit()
-                        .frame(width:30)
+                        .frame(width:20)
+                        .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                 }
             
             

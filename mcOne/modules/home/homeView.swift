@@ -38,7 +38,8 @@ struct HomeView: View {
                         }.padding(.leading)
                     }.padding(.top, 260)
                 
-            }
+                
+            }.shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
         }.navigationBarBackButtonHidden(true)
     }
 }

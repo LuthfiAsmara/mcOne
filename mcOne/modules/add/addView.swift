@@ -41,6 +41,7 @@ struct AddView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 30)
+                                        .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                                 }
                             Spacer()
                         }
@@ -64,13 +65,14 @@ struct AddView: View {
                     VStack{
                         LivesView(livesCount: livesCounts)
                             .frame(width: 200)
-                            .offset(x: 0, y: 15)
+                            .offset(x: 15, y: 22)
                         
                         Image("teacher")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 180, height: 300, alignment: .bottomTrailing)
                             .offset(y: 40)
+                            .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                     }
                 }
                 
@@ -187,7 +189,7 @@ struct QuestionAddWidget: View{
                                                 .resizable()
                                                 .scaledToFit()
                                                 .padding(3)
-                                                .shadow(color: Color("shadow"), radius: 1, x: -2, y: 4)
+                                                .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                                             
                                         } else {
                                             Image("donat")
@@ -204,7 +206,7 @@ struct QuestionAddWidget: View{
                     
                     ZStack{
                         Text("+")
-                            .font(.custom("Tung2-Regular.ttf", size: 40))
+                            .font(.custom("Tung2-Regular", size: 40))
                             .fontWeight(.heavy)
                             .foregroundColor(Color("font"))
                     }
@@ -221,7 +223,7 @@ struct QuestionAddWidget: View{
                                                 .resizable()
                                                 .scaledToFit()
                                                 .padding(3)
-                                                .shadow(color: Color("shadow"), radius: 1, x: -2, y: 4)
+                                                .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                                             
                                         } else {
                                             Image("donat")
@@ -237,7 +239,7 @@ struct QuestionAddWidget: View{
                     }                      .frame(width: 150)
                     ZStack{
                         Text("=")
-                            .font(.custom("Tung2-Regular.ttf", size: 40))
+                            .font(.custom("Tung2-Regular", size: 40))
                             .fontWeight(.heavy)
                             .foregroundColor(Color("font"))
                     }
@@ -247,19 +249,20 @@ struct QuestionAddWidget: View{
                 
             }
             .frame(width: 470, height: 120)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: Color("shadow"), radius: 2, x: -2, y: 4)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
             
             Rectangle()
                 .foregroundColor(Color("bajuyona"))
                 .frame(width: 70, height: 70)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .shadow(color: Color("shadow"), radius: 2, x: -2, y: 4)
+                .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                 .overlay(
                     Text("?")
-                        .font(.custom("Tung2-Regular.ttf", size: 40))
+                        .font(.custom("Tung2-Regular", size: 50))
                         .fontWeight(.heavy)
                         .foregroundColor(Color("font"))
+                        .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                 )
                 
 
