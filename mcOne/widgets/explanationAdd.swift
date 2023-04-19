@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExplanationAddView : View{
-    @Binding var num1: Int
-    @Binding var num2: Int
-    @Binding var ans: Int
+    var num1: Int
+    var num2: Int
+    var ans: Int
     @State var stepOne: Bool = false
     @State var stepTwo: Bool = false
     @State var stepThree: Bool = false
@@ -49,17 +49,17 @@ struct ExplanationAddView : View{
                     .frame(width: 120, height: 40)
                     .foregroundColor(Color("question-mark"))
                     .overlay(Text("Penjelasan")
+                        .font(.custom("Tung2-Regular", size: 20))
                         .font(.headline)
                         .fontWeight(.medium)
                         .foregroundColor(Color("font")))
                 ZStack {
                     Color("explanation")
-                    VStack(alignment: .leading){
+                    VStack(){
                         HStack {
                             ZStack{
                                 if stepOne{
                                     VStack{
-                                        
                                         ZStack{
                                             Color("cream")
                                             VStack(spacing: 0) {
@@ -217,11 +217,8 @@ struct ExplanationAddView : View{
                             }.frame(width: 150, height: 100)
                             Spacer()
                         }
-                        .offset(x:11)
-                        Spacer()
                         
                         HStack {
-                            ZStack{
                                 if stepFour{
                                     VStack {
                                         Rectangle()
@@ -245,7 +242,7 @@ struct ExplanationAddView : View{
                                         
                                     }
                                 }
-                            }.frame(width: 150, height: 100)
+                            
                             ZStack{
                                 if stepFive{
                                     VStack {
@@ -304,6 +301,7 @@ struct ExplanationAddView : View{
                                         }
                                 }
                             }.frame(width: 310, height: 120)
+                                
                         }
                         
                         
@@ -345,8 +343,8 @@ struct ExplanationAddView : View{
         }
     }
 
-//struct ExplanationAddView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExplanationAddView(num1: 2, num2: 5, ans: 5)
-//    }
-//}
+struct ExplanationAddView_Previews: PreviewProvider {
+    static var previews: some View {
+        ExplanationAddView(num1: 2, num2: 5, ans: 7)
+    }
+}

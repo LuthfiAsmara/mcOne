@@ -11,13 +11,22 @@ struct ScoreBoardview: View{
     var body: some View{
         NavigationStack{
             ZStack{
-                Image("bg")
-                Rectangle().fill(Color.black).opacity(0.2)
+                Image("bg").blur(radius: 2)
                 VStack{
-                    Text("Skor kamu")
-                    Text("")
-                    Text("\(score*20)")
-                    Spacer().frame(height: 50)
+                    Text("SKOR KAMU")
+                       
+                        .foregroundColor(Color("font"))
+                        .padding(.top, 20)
+                    Image("Star")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
+                        .overlay(
+                            Text("\(score*20)")
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color("font"))
+                        )
                     NavigationLink {
                         HomeView()
                     } label: {
@@ -30,6 +39,7 @@ struct ScoreBoardview: View{
                     
                     
                 }.font(.custom("Tung2-Regular", size: 24))
+                    .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
                 
                 
             }

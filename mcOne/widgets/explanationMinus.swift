@@ -41,8 +41,8 @@ struct ExplanationMinusView : View{
                             .frame(width: 120, height: 40)
                             .foregroundColor(Color("question-mark"))
                             .overlay(Text("Penjelasan")
-                                .font(.headline)
-                                .fontWeight(.medium)
+                                .font(.custom("Tung2-Regular", size: 20))
+
                                 .foregroundColor(Color("font")))
                         ZStack {
                             Color("explanation")
@@ -129,7 +129,9 @@ struct ExplanationMinusView : View{
                                                         .foregroundColor(Color("font"))
                                                 )
                                             
-                                        }.onAppear{
+                                        }
+                                        .animation(.easeIn(duration: 1))
+                                        .onAppear{
                                             SoundService.instance.dikurang()
 //                                            SoundService.instance.player?.stop()
                                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
@@ -302,7 +304,7 @@ struct ExplanationMinusView : View{
                                                 }
                                             }
                                         }
-                                    }                                                .frame(width: 310, height: 120)
+                                    }.frame(width: 310, height: 120)
 
                             }
                             }
@@ -324,7 +326,6 @@ struct ExplanationMinusView : View{
                 self.stepOne = true
             }
             
-
         }
     }
 }

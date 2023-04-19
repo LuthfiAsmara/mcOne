@@ -95,7 +95,7 @@ struct AddView: View {
                 
                 
                 if isPopup{
-                    ExplanationAddView(num1: $firstNumber, num2: $secondNumber, ans: $correctAnswer)
+                    ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer)
                         .onTapGesture {
                         self.questionCount = questionCount+1
                         self.isWrong = false
