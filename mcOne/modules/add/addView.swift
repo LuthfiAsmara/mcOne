@@ -22,105 +22,124 @@ struct AddView: View {
 
     
     var body: some View {
-        ZStack{
-            Image("bg")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
-                .blur(radius: 8)
+        NavigationView{
+            ZStack{
+                Image("bg")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .blur(radius: 8)
+               
 
-            HStack{
-                Spacer()
-                VStack {
+                
+                HStack{
                     Spacer()
-                    QuestionAddWidget(
-                        firstNumber: $firstNumber,
-                        secondNumber: $secondNumber)
-                    Spacer()
-                    AnswerAddWidget(
-                        option: $option,
-                        isCorrect: $isCorrect,
-                        isWrong: $isWrong,
-                        correctAnswer: $correctAnswer,
-                        questionCount: $questionCount,
-                        correctResult: $correctResult,
-                        livesCounts: $livesCounts,
-                        isPopup: $isPopup)
-                    Spacer()
-                }
-                VStack{
-                    LivesView(livesCount: livesCounts)
-                        .frame(width: 200)
-                        .offset(x: 0, y: 15)
-                    
-                    Image("teacher")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 300, alignment: .bottomTrailing)
-                        .offset(y: 40)
-                }
-            }
-            
-            
-            
-            if isWrong == true{
-                if livesCounts == 0{
-                    WrongAnswer()
-                }else{
-                    WrongAnswer().onTapGesture {
-                        self.isWrong = false
+                    VStack {
+                        HStack{
+                            NavigationLink {
+                                HomeView()  } label: {
+                                    Image("back")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 30)
+                                }
+                            Spacer()
+                        }
+                        Spacer().frame(height: 20)
+                        
+                        QuestionAddWidget(
+                            firstNumber: $firstNumber,
+                            secondNumber: $secondNumber)
+                        Spacer().frame(height: 20)
+                        AnswerAddWidget(
+                            option: $option,
+                            isCorrect: $isCorrect,
+                            isWrong: $isWrong,
+                            correctAnswer: $correctAnswer,
+                            questionCount: $questionCount,
+                            correctResult: $correctResult,
+                            livesCounts: $livesCounts,
+                            isPopup: $isPopup)
+//                        Spacer()
+                    }
+                    VStack{
+                        LivesView(livesCount: livesCounts)
+                            .frame(width: 200)
+                            .offset(x: 0, y: 15)
+                        
+                        Image("teacher")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 180, height: 300, alignment: .bottomTrailing)
+                            .offset(y: 40)
                     }
                 }
-            }
-            
-            
-            if isCorrect == true{
-                CorrectAnswer()
-            }
-            
-            
-            if isPopup{
-                ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer).onTapGesture {
-                    self.questionCount = questionCount+1
-                    self.isWrong = false
-                    self.isCorrect = false
-                    self.isPopup = false
-                    if livesCounts == 0 || questionCount == 5{
-                        isScoreBoard.self = true
+                
+                
+                
+                if isWrong == true{
+                    if livesCounts == 0{
+                        WrongAnswer()
                     }else{
-                        newQuestion()
+                        WrongAnswer().onTapGesture {
+                            self.isWrong = false
+                        }
                     }
                 }
-            }
-            
-            
-            if isScoreBoard{
-                ScoreBoardview(score: correctResult)
-            }
-            
+                
+                
+                if isCorrect == true{
+                    CorrectAnswer()
+                }
+                
+                
+                if isPopup{
+                    ExplanationAddView(num1: $firstNumber, num2: $secondNumber, ans: $correctAnswer)
+                        .onTapGesture {
+                        self.questionCount = questionCount+1
+                        self.isWrong = false
+                        self.isCorrect = false
+                        self.isPopup = false
+                        if livesCounts == 0 || questionCount == 5{
+                            isScoreBoard.self = true
+                        }else{
+                            newQuestion()
+                        }
+                    }
+                }
+                
+                if isScoreBoard{
+                    ScoreBoardview(score: correctResult)
+                }
+                
+                
+            }.navigationBarBackButtonHidden(true)
+                .previewInterfaceOrientation(.landscapeRight)
+                .onAppear{
+                    //                              SoundService.instance.PlaySound()
+                    
+                    print(option)
+                    plusOperation()
+                    option.insert(correctAnswer)
+                    insertNumber()
+                    print(option)
+                    
+                }
         }.navigationBarBackButtonHidden(true)
-        .previewInterfaceOrientation(.landscapeRight)
             .onAppear{
-//                              SoundService.instance.PlaySound()
-                
-                print(option)
-                plusOperation()
-                option.insert(correctAnswer)
-                insertNumber()
-                print(option)
-                
+                newQuestion()
             }
     }
     
-    private func generateNumber(){
+     func generateNumber(){
         firstNumber = Int.random(in: 1...5)
         secondNumber = Int.random(in: 1...4)
     }
     
-    private func plusOperation(){
+     func plusOperation(){
         correctAnswer = firstNumber + secondNumber
     }
     
-    private func insertNumber(){
+     func insertNumber(){
         while option.count < 3 {
             let randomNumber = Int.random(in: 1...4)
             if randomNumber != 0 && !option.contains(randomNumber){
@@ -129,7 +148,7 @@ struct AddView: View {
         }
     }
     
-    private func newQuestion() {
+     func newQuestion() {
         generateNumber()
         plusOperation()
         var newOption = Set<Int>()

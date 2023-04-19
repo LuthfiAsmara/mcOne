@@ -9,15 +9,29 @@ import SwiftUI
 struct ScoreBoardview: View{
     @State var score: Int
     var body: some View{
-        ZStack{
-            Image("bg")
-            Rectangle().fill(Color.black).opacity(0.2)
-            VStack{
-                Text("Skor kamu")
-                Text("\(score*20)")
-            }
-    
+        NavigationStack{
+            ZStack{
+                Image("bg")
+                Rectangle().fill(Color.black).opacity(0.2)
+                VStack{
+                    Text("Skor kamu")
+                    Text("\(score*20)")
+                    Spacer().frame(height: 50)
+                    NavigationLink {
+                        HomeView()
+                    } label: {
+                        Image("play-again")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 35)
+                    }
 
+                    
+                    
+                }.font(.custom("Tung2-Regular", size: 24))
+                
+                
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ struct CorrectAnswer: View{
     var body: some View{
         ZStack{
             Rectangle().fill(Color.black).opacity(0.2)
+                .frame(width: 900, height: 420)
             Circle().fill(Color.greenForGradient).frame(width: 320)
             Circle().fill(Color.white).opacity(0.2).frame(width: 320)
             Circle().fill(Color.greenForGradient).frame(width: 260)
@@ -17,8 +18,14 @@ struct CorrectAnswer: View{
             Image("happy")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 220)
-            Text("Hore, jawaban kamu benar").padding(.top,200).whiteTextB15()
+                .frame(width: 230)
+                .offset(x:0, y:-20)
+            
+            Text("Hore, jawaban kamu benar!")
+                .offset(x:0, y:60)
+                .font(.custom("Tung2-Regular", size: 22))
+                .whiteTextB15()
+                
                 
             
         }
