@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct WrongAnswer: View{
+    @State private var isAnimating = false
+    
     var body: some View{
         ZStack{
             Rectangle().fill(Color.black).opacity(0.2)
-                .frame(width: 900, height: 420)
             Circle().fill(Color.redForGradient).frame(width: 320)
             Circle().fill(Color.white).opacity(0.2).frame(width: 320)
             Circle().fill(Color.redForGradient).frame(width: 260)
@@ -21,13 +22,27 @@ struct WrongAnswer: View{
                 .scaledToFit()
                 .frame(width: 200)
                 .offset(x:0, y:-10)
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0.2)
+
             
             Text("Yah, jawaban kamu belum tepat")
                 .offset(x:0, y:80)
                 .font(.custom("Tung2-Regular", size: 22))
                 .whiteTextB15()
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0.2)
+
             
         }
+        .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.7)) {
+                self.isAnimating.toggle()
+            }
+        }
+
+        
     }
 }
 

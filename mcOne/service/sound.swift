@@ -24,6 +24,32 @@ class SoundService{
         }
     }
     
+    func background(){
+        guard let soundUrl = Bundle.main.url(forResource: "Tung tung", withExtension: "m4a") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            player = try AVAudioPlayer(contentsOf: soundUrl)
+            player?.numberOfLoops = -1
+            player?.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
+    func background_low(){
+        guard let soundUrl = Bundle.main.url(forResource: "Tung tung", withExtension: "m4a") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            player = try AVAudioPlayer(contentsOf: soundUrl)
+            player?.numberOfLoops = -1
+            player?.play()
+            player?.volume = 0.2
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
+    
     func satuAwal(){
         guard let soundUrl = Bundle.main.url(forResource: "1", withExtension: "m4a") else { return }
         do {
@@ -336,7 +362,7 @@ class SoundService{
             print(error.localizedDescription)
         }
     }
-    
+
     func mariKitaHitungBersama(){
         guard let soundUrl = Bundle.main.url(forResource: "mariKitaHitungBersama", withExtension: "m4a") else { return }
         do {

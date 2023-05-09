@@ -120,7 +120,7 @@ struct MinusView: View{
         .navigationBarBackButtonHidden(true)
         .previewInterfaceOrientation(.landscapeRight)
         .onAppear{
-            //                                SoundService.instance.PlaySound()
+            SoundService.instance.background_low()
             print(option)
             generateNumber()
             minusOperation()
@@ -272,6 +272,7 @@ struct QuestionView: View{
                 )
             
         }
+        
     }
 }
 

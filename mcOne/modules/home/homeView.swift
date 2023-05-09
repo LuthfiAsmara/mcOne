@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 var name = UserData.userName
 var photo = UserData.photo
@@ -41,6 +42,9 @@ struct HomeView: View {
                 
             }.shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
         }.navigationBarBackButtonHidden(true)
+        .onAppear{
+                SoundService.instance.background()
+            }
     }
 }
 

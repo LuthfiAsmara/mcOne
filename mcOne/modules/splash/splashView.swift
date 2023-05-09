@@ -14,19 +14,20 @@ struct SplashView: View {
         if isSplash {
             HomeView()
         } else {
-            VStack {
-                Image("LOGO TUNG-TUNG")
+            ZStack {
+                Color.white.edgesIgnoringSafeArea(.all)
+                Image("Logotung")
                     .resizable()
                     .frame(
                         width: 200,
                         height: 200,  alignment: .center)
             }.navigationBarBackButtonHidden(true)
             .onAppear{
-//                SoundService.instance.PlaySound()
                 DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
                     self.isSplash = true
                 }
             }
+
         }
     }
 }
