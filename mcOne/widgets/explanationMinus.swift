@@ -1,10 +1,3 @@
-//
-//  explanationMinus.swift
-//  mcOne
-//
-//  Created by Luthfi Asmara on 05/04/23.
-//
-
 import SwiftUI
 
 struct ExplanationMinusView : View{
@@ -19,10 +12,8 @@ struct ExplanationMinusView : View{
     @State var opp1: Double = 0.5
     @State var opp2: Double = 0.5
     @State var opp3: Double = 0.5
-//    init(title: String, destination: AnyView ) {
-//        self.title = title
-//        self.destination = destination
-//    }
+    @State private var isShowing = false
+    
     var body: some View{
         let firstColumns = Int(ceil(sqrt(Double(num1))))
         let firstRows = Int(ceil(Double(num1) / Double(firstColumns)))
@@ -31,11 +22,26 @@ struct ExplanationMinusView : View{
         let thirdColumns = Int(ceil(sqrt(Double(ans))))
         let thirdRows = Int(ceil(Double(ans) / Double(thirdColumns)))
         
+        
+
         ZStack {
                     Image("bg")
-                        .resizable()
                         .edgesIgnoringSafeArea(.all)
                         .blur(radius: 8)
+            
+            if !isShowing {
+                Color.clear
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 0.5,  repeats: false) { _ in
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                isShowing = true
+                            }
+                        }
+                    }
+            }
+            
+            if isShowing{
+                ZStack{
                     VStack(alignment: .leading){
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 120, height: 40)
@@ -107,7 +113,7 @@ struct ExplanationMinusView : View{
                                                     SoundService.instance.jadi()
                                                 }
                                                 opp1 = 1.0
-                                                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                                                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                                                     self.stepTwo = true
                                                     
                                                 }
@@ -133,7 +139,7 @@ struct ExplanationMinusView : View{
                                         .animation(.easeIn(duration: 1))
                                         .onAppear{
                                             SoundService.instance.dikurang()
-//                                            SoundService.instance.player?.stop()
+    
                                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                                                 self.stepThree = true
                                                 
@@ -229,7 +235,7 @@ struct ExplanationMinusView : View{
                                             
                                         }.onAppear{
                                             SoundService.instance.samaDengan()
-//                                            SoundService.instance.player?.stop()
+    //                                            SoundService.instance.player?.stop()
 
                                             Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                                                 self.stepFive = true
@@ -320,6 +326,13 @@ struct ExplanationMinusView : View{
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 400, height: 400, alignment: .trailing)
                         .offset(x: 200, y: 30)
+                }
+                .opacity(isShowing ? 1 : 0)
+                .animation(.easeInOut(duration: 0.5))
+                .transition(.opacity)
+            }
+            
+                    
         }.onAppear{
             SoundService.instance.mariKitaHitungBersama()
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in

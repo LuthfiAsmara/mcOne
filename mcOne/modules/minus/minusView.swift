@@ -294,7 +294,7 @@ struct AnswerMinusWidget: View{
                     {
                         self.isCorrect = true
                         self.correctResult = correctResult+1
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
                             self.isPopup = true
                         }
                     }else{
@@ -302,7 +302,7 @@ struct AnswerMinusWidget: View{
                         self.livesCounts = livesCounts-1
                         
                         if livesCounts==0{
-                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
                                 self.isPopup = true
                             }
                         }

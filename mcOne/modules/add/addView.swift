@@ -102,24 +102,24 @@ struct AddView: View {
                 
                 if isCorrect == true{
                     CorrectAnswer()
-                        .transition(.scale)
                 }
 
                 
-                if isPopup{
+                if isPopup {
                     ExplanationAddView(num1: firstNumber, num2: secondNumber, ans: correctAnswer)
                         .onTapGesture {
-                        self.questionCount = questionCount+1
-                        self.isWrong = false
-                        self.isCorrect = false
-                        self.isPopup = false
-                            if livesCounts == 0 || questionCount == 5{
+                            self.questionCount = questionCount + 1
+                            self.isWrong = false
+                            self.isCorrect = false
+                            self.isPopup = false
+                            if livesCounts == 0 || questionCount == 5 {
                                 isScoreBoard = true
-                            }else{
-                            newQuestion()
+                            } else {
+                                newQuestion()
+                            }
                         }
-                    }
                 }
+
                 
                 if isScoreBoard{
                     ScoreBoardview(score: correctResult)
@@ -293,14 +293,14 @@ struct AnswerAddWidget: View{
                     {
                         self.isCorrect = true
                         self.correctResult = correctResult+1
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
                             self.isPopup = true
                         }
                     }else{
                         self.isWrong = true
                         self.livesCounts = livesCounts-1
                         if livesCounts==0{
-                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
                                 self.isPopup = true
                             }
                         }

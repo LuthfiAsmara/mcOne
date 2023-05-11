@@ -11,10 +11,20 @@ struct CorrectAnswer: View {
     
     var body: some View {
         ZStack {
-            Rectangle().fill(Color.black).opacity(0.2)
+            Rectangle().fill(Color.black)
+                .opacity(isAnimating ? 0.2 : 0)
+
             Circle().fill(Color.greenForGradient).frame(width: 320)
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0.2)
+
             Circle().fill(Color.white).opacity(0.2).frame(width: 320)
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0.2)
+
             Circle().fill(Color.greenForGradient).frame(width: 260)
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0.2)
             
             Image("happy")
                 .resizable()
@@ -33,8 +43,13 @@ struct CorrectAnswer: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            withAnimation(.easeInOut(duration: 0.7)) {
+            withAnimation(.easeInOut(duration: 0.3)) {
                 self.isAnimating.toggle()
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.isAnimating.toggle()
+                }
             }
         }
     }
