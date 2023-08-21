@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct mcOneApp: App {
+struct TungTung: App {
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            LaunchScreen()
         }
     }
 }

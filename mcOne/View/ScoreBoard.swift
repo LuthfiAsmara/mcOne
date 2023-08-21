@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
-struct ScoreBoardview: View{
+struct ScoreBoardview: View {
     @State var score: Int
-    var body: some View{
-        NavigationStack{
-            ZStack{
+    var body: some View {
+        NavigationStack {
+            ZStack {
                 Image("bg").blur(radius: 2)
-                VStack{
+                VStack {
                     Text("SKOR KAMU")
-                       
                         .foregroundColor(Color("font"))
                         .padding(.top, 20)
                     Image("Star")
@@ -35,13 +34,8 @@ struct ScoreBoardview: View{
                             .scaledToFit()
                             .frame(height: 35)
                     }
-
-                    
-                    
                 }.font(.custom("Tung2-Regular", size: 24))
                     .shadow(color: Color("shadow") .opacity(0.6), radius: 2, x: -2, y: 4)
-                
-                
             }
         }
     }

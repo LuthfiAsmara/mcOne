@@ -8,7 +8,7 @@
 import XCTest
 @testable import mcOne
 
-final class mcOneTests: XCTestCase {
+final class TungTungTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
